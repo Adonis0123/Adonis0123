@@ -68,7 +68,7 @@
 
 <p align="center">
   <a href="https://github.com/Adonis0123">
-    <img height="170" src="https://github-readme-stats.vercel.app/api?username=Adonis0123&show_icons=true&hide_border=true&rank_icon=github&theme=transparent&icon_color=58A6FF" alt="GitHub stats for Adonis0123" />
+    <img height="170" src="https://adonis0123-stats.vercel.app/api?username=Adonis0123&show_icons=true&hide_border=true&rank_icon=github&theme=transparent&icon_color=58A6FF" alt="GitHub stats for Adonis0123" />
   </a>
   <a href="https://github.com/Adonis0123">
     <img height="170" src="https://streak-stats.demolab.com?user=Adonis0123&hide_border=true&theme=transparent" alt="GitHub streak stats for Adonis0123" />
@@ -77,7 +77,7 @@
 
 <p align="center">
   <a href="https://github.com/Adonis0123">
-    <img height="170" src="https://github-readme-stats.vercel.app/api/top-langs/?username=Adonis0123&layout=compact&hide_border=true&theme=transparent&langs_count=8" alt="Top languages used by Adonis0123" />
+    <img height="170" src="https://adonis0123-stats.vercel.app/api/top-langs/?username=Adonis0123&layout=compact&hide_border=true&theme=transparent&langs_count=8" alt="Top languages used by Adonis0123" />
   </a>
 </p>
 
