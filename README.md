@@ -118,9 +118,9 @@ Skill framework for reusable AI engineering workflows and team-level productivit
 ### 3) Recently Active Repositories (Auto-refreshed weekly)
 
 <!-- RECENT_REPOS:START -->
-- **Pending auto-refresh #1** - Automatic selection will run in GitHub Actions when GitHub API is reachable. (Tech: N/A | Last update: unknown)
-- **Pending auto-refresh #2** - Automatic selection will run in GitHub Actions when GitHub API is reachable. (Tech: N/A | Last update: unknown)
-- **Pending auto-refresh #3** - Automatic selection will run in GitHub Actions when GitHub API is reachable. (Tech: N/A | Last update: unknown)
+- **[tiptap-editor](https://github.com/Adonis0123/tiptap-editor)** - use tiptap in nextjs, may be deleted later (Tech: N/A | Last update: 2023-07-03)
+- **[tiptap-editor-nextjs](https://github.com/Adonis0123/tiptap-editor-nextjs)** - use tiptap in nextjs (Tech: N/A | Last update: 2023-06-26)
+- **[blocksuit-nextjs](https://github.com/Adonis0123/blocksuit-nextjs)** - use blocksuit in nextjs (Tech: N/A | Last update: 2023-06-20)
 <!-- RECENT_REPOS:END -->
 
 ## How This Profile Works
