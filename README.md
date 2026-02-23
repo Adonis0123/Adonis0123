@@ -56,14 +56,6 @@
 
 </details>
 
-## Achievements
-
-<p align="center">
-  <a href="https://github.com/ryo-ma/github-profile-trophy">
-    <img src="https://github-profile-trophy.vercel.app/?username=Adonis0123&theme=flat&no-bg=true&no-frame=true&column=6" alt="GitHub trophies for Adonis0123" />
-  </a>
-</p>
-
 ## GitHub Stats
 
 <p align="center">
