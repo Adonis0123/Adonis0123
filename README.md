@@ -103,15 +103,7 @@
 
 ## Featured Projects
 
-### 1) adonis-kit
-
-Production-ready engineering kit for building and scaling developer-focused products.
-
-- Live Demo: [adonis-kit.vercel.app](https://adonis-kit.vercel.app/)
-- Repository: [Adonis0123/adonis-kit](https://github.com/Adonis0123/adonis-kit)
-- Core Tech: React, TypeScript, Vercel, UI System
-
-### 2) adonis-skills
+### 1) adonis-skills
 
 Skill framework for reusable AI engineering workflows and team-level productivity.
 
@@ -119,12 +111,20 @@ Skill framework for reusable AI engineering workflows and team-level productivit
 - Repository: [Adonis0123/adonis-skills](https://github.com/Adonis0123/adonis-skills)
 - Core Tech: TypeScript, Workflow Automation, Tooling Architecture
 
+### 2) adonis-kit
+
+Production-ready engineering kit for building and scaling developer-focused products.
+
+- Live Demo: [adonis-kit.vercel.app](https://adonis-kit.vercel.app/)
+- Repository: [Adonis0123/adonis-kit](https://github.com/Adonis0123/adonis-kit)
+- Core Tech: React, TypeScript, Vercel, UI System
+
 ### 3) Recently Active Repositories (Auto-refreshed weekly)
 
 <!-- RECENT_REPOS:START -->
-- **[tiptap-editor](https://github.com/Adonis0123/tiptap-editor)** - use tiptap in nextjs, may be deleted later (Tech: N/A | Last update: 2023-07-03)
-- **[tiptap-editor-nextjs](https://github.com/Adonis0123/tiptap-editor-nextjs)** - use tiptap in nextjs (Tech: N/A | Last update: 2023-06-26)
-- **[blocksuit-nextjs](https://github.com/Adonis0123/blocksuit-nextjs)** - use blocksuit in nextjs (Tech: N/A | Last update: 2023-06-20)
+- **[remotion-demo](https://github.com/Adonis0123/remotion-demo)** - Open-source repository maintained by Adonis0123. (Tech: N/A | Last update: 2026-01-26)
+- **[weekly-flow](https://github.com/Adonis0123/weekly-flow)** - Open-source repository maintained by Adonis0123. (Tech: N/A | Last update: 2026-01-13)
+- **[bookmarks-manager-extension](https://github.com/Adonis0123/bookmarks-manager-extension)** - Open-source repository maintained by Adonis0123. (Tech: N/A | Last update: 2025-11-02)
 <!-- RECENT_REPOS:END -->
 
 ## Contact

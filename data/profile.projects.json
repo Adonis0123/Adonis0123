@@ -1,26 +1,26 @@
 [
   {
-    "name": "tiptap-editor",
-    "repo": "Adonis0123/tiptap-editor",
+    "name": "remotion-demo",
+    "repo": "Adonis0123/remotion-demo",
     "demo": null,
-    "summary": "use tiptap in nextjs, may be deleted later",
+    "summary": "Open-source repository maintained by Adonis0123.",
     "tech": [],
-    "updatedAt": "2023-07-03T09:23:08.000Z"
+    "updatedAt": "2026-01-26T09:14:22.000Z"
   },
   {
-    "name": "tiptap-editor-nextjs",
-    "repo": "Adonis0123/tiptap-editor-nextjs",
+    "name": "weekly-flow",
+    "repo": "Adonis0123/weekly-flow",
     "demo": null,
-    "summary": "use tiptap in nextjs",
+    "summary": "Open-source repository maintained by Adonis0123.",
     "tech": [],
-    "updatedAt": "2023-06-26T05:56:15.000Z"
+    "updatedAt": "2026-01-13T06:35:57.000Z"
   },
   {
-    "name": "blocksuit-nextjs",
-    "repo": "Adonis0123/blocksuit-nextjs",
+    "name": "bookmarks-manager-extension",
+    "repo": "Adonis0123/bookmarks-manager-extension",
     "demo": null,
-    "summary": "use blocksuit in nextjs",
+    "summary": "Open-source repository maintained by Adonis0123.",
     "tech": [],
-    "updatedAt": "2023-06-20T09:04:48.000Z"
+    "updatedAt": "2025-11-02T15:28:23.000Z"
   }
 ]

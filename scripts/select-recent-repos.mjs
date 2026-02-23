@@ -60,7 +60,7 @@ const BLOCKED_REPOS = new Set(
 );
 
 const EXCLUDE_PATTERN =
-  /(demo|practice|tutorial|learn|sandbox|playground|notes?|examples?)/i;
+  /(practice|tutorial|learn|sandbox|playground|notes?|examples?)/i;
 
 /**
  * Converts a date-like value to ISO 8601 string.
@@ -165,9 +165,7 @@ function isQualityCandidate(repo) {
   if (FIXED_FEATURED_REPOS.has(String(repo.full_name).toLowerCase())) return false;
   if (BLOCKED_REPOS.has(String(repo.full_name).toLowerCase())) return false;
 
-  const hasDescription = Boolean((repo.description || "").trim());
-  const hasTopics = Array.isArray(repo.topics) && repo.topics.length > 0;
-  return hasDescription || hasTopics;
+  return true;
 }
 
 /**
