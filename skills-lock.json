@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "skills": {
+    "claude-skills-sync-init": {
+      "source": "adonis0123/adonis-skills",
+      "sourceType": "github",
+      "computedHash": "fe4df8ef0d2544ff0ba0c6c556e30f5ca51945e1ad9b895f7cc9173192513fe0"
+    },
+    "ruler-rules-init": {
+      "source": "adonis0123/adonis-skills",
+      "sourceType": "github",
+      "computedHash": "b696b668aaf610acaa07b611d19e6e3efb70fa2e18ce520a0dcbcc974ce36c52"
+    }
+  }
+}

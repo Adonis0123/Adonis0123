@@ -1,0 +1,13 @@
+{
+  "name": "adonis-github-profile",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "skills:sync:llm": "node --experimental-strip-types ./scripts/sync-llm-skills.ts",
+    "postinstall": "is-ci && echo 'Skipping postinstall in CI environment' || (pnpm run skills:sync:llm && pnpm run ruler:apply)",
+    "ruler:apply": "pnpm dlx @intellectronica/ruler@latest apply --local-only --no-backup"
+  },
+  "devDependencies": {
+    "is-ci": "^4.1.0"
+  }
+}
