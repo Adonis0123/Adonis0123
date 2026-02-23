@@ -8,6 +8,9 @@
 
 <p align="center">
   <img src="https://komarev.com/ghpvc/?username=Adonis0123&style=flat-square&color=58A6FF&label=Profile+Views" alt="Profile views" />
+  <a href="https://wakatime.com/@adonis0123">
+    <img src="https://wakatime.com/badge/user/2b2beed5-8e46-41d0-a31c-fea77e1ccd20.svg" alt="WakaTime coding time" />
+  </a>
 </p>
 
 ## About Me
@@ -21,38 +24,47 @@
 
 <p align="center">
   <a href="https://skillicons.dev">
-    <img src="https://skillicons.dev/icons?i=react,nextjs,ts,js,tailwind,vite,nodejs,express&theme=light" alt="Frontend & Runtime" />
+    <img src="https://skillicons.dev/icons?i=html,css,js,ts,sass,md,svg,regex&theme=light" alt="Languages & Markup" />
   </a>
 </p>
 <p align="center">
   <a href="https://skillicons.dev">
-    <img src="https://skillicons.dev/icons?i=postgres,docker,githubactions,nginx,cloudflare,vercel,linux&theme=light" alt="Backend & Infrastructure" />
+    <img src="https://skillicons.dev/icons?i=react,nextjs,tailwind,electron,vite,webpack,express&theme=light" alt="Frameworks & Build" />
+  </a>
+</p>
+<p align="center">
+  <a href="https://skillicons.dev">
+    <img src="https://skillicons.dev/icons?i=nodejs,git,vscode,figma,python,github,workers,codepen,stackoverflow&theme=light" alt="Runtime & Tools" />
+  </a>
+</p>
+<p align="center">
+  <a href="https://skillicons.dev">
+    <img src="https://skillicons.dev/icons?i=postgres,docker,githubactions,nginx,cloudflare,vercel,linux,jenkins&theme=light" alt="Infra & DevOps" />
   </a>
 </p>
 
 <details>
 <summary>Full tech stack details</summary>
 
-### Backend
+### Languages & Markup
 
-- Node.js, TypeScript, API Design
-- PostgreSQL, Messaging Patterns
+- HTML, CSS, JavaScript, TypeScript
+- Sass, Markdown, SVG, Regex
 
-### DevOps / Infra
+### Frameworks & Build
 
-- Docker, GitHub Actions
-- Nginx, Cloudflare, Deployment Automation
+- React, Next.js, Astro, Tailwind CSS
+- Electron, Vite, Webpack, Express
 
-### Frontend
+### Runtime & Tools
 
-- React, Next.js, Tailwind CSS
-- shadcn/ui, Vite, Component-driven Development
+- Node.js, Git, VSCode, Figma
+- Python, GitHub, Cloudflare Workers, CodePen, Stack Overflow
 
-### AI / Tools
+### Infra & DevOps
 
-- OpenAI API integrations
-- Token and prompt workflow tooling
-- Engineering automation scripts
+- PostgreSQL, Docker, GitHub Actions
+- Nginx, Cloudflare, Vercel, Linux, Jenkins
 
 </details>
 
@@ -115,25 +127,6 @@ Skill framework for reusable AI engineering workflows and team-level productivit
 - **[blocksuit-nextjs](https://github.com/Adonis0123/blocksuit-nextjs)** - use blocksuit in nextjs (Tech: N/A | Last update: 2023-06-20)
 <!-- RECENT_REPOS:END -->
 
-## How This Profile Works
-
-```mermaid
-flowchart LR
-    A["Visitors and Collaborators"] --> B["GitHub Profile README"]
-    B --> C["Featured OSS Projects"]
-    B --> D["Tech Stack and Engineering Focus"]
-    B --> E["Live Product Demos"]
-    C --> F["adonis-kit"]
-    C --> G["adonis-skills"]
-    B --> H["Weekly Automation"]
-    H --> I["GitHub Actions: profile-refresh.yml"]
-    I --> J["data/profile.projects.json"]
-    J --> B
-    H --> K["GitHub Actions: snake-animation.yml"]
-    K --> L["Contribution Snake SVG"]
-    L --> B
-```
-
 ## Contact
 
 <p align="left">
@@ -143,6 +136,7 @@ flowchart LR
   <a href="mailto:zhihua0123@qq.com">
     <img src="https://img.shields.io/badge/Email-zhihua0123@qq.com-EA4335?style=for-the-badge&logo=gmail&logoColor=white" alt="Email" />
   </a>
+
 </p>
 
 <img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:1a73e8,100:00c4b4&height=120&section=footer" alt="Footer wave" />
