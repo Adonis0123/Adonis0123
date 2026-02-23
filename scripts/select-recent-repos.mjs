@@ -199,15 +199,15 @@ function toProject(repo, fallbackSummary) {
  */
 function renderRecentReposMarkdown(projects) {
   const lines = projects.map((project) => {
-    const techText =
-      project.tech && project.tech.length > 0
-        ? project.tech.map((item) => `\`${item}\``).join(", ")
-        : "N/A";
+    const hasTech = project.tech && project.tech.length > 0;
+    const techPart = hasTech
+      ? `Tech: ${project.tech.map((item) => `\`${item}\``).join(", ")} | `
+      : "";
     const updatedText = toMarkdownDate(project.updatedAt);
     const title = project.repo
       ? `**[${project.name}](https://github.com/${project.repo})**`
       : `**${project.name}**`;
-    return `- ${title} - ${project.summary} (Tech: ${techText} | Last update: ${updatedText})`;
+    return `- ${title} - ${project.summary} (${techPart}Last update: ${updatedText})`;
   });
 
   return lines.join("\n");

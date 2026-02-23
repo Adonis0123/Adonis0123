@@ -122,9 +122,9 @@ Production-ready engineering kit for building and scaling developer-focused prod
 ### 3) Recently Active Repositories (Auto-refreshed weekly)
 
 <!-- RECENT_REPOS:START -->
-- **[remotion-demo](https://github.com/Adonis0123/remotion-demo)** - Open-source repository maintained by Adonis0123. (Tech: N/A | Last update: 2026-01-26)
-- **[weekly-flow](https://github.com/Adonis0123/weekly-flow)** - Open-source repository maintained by Adonis0123. (Tech: N/A | Last update: 2026-01-13)
-- **[bookmarks-manager-extension](https://github.com/Adonis0123/bookmarks-manager-extension)** - Open-source repository maintained by Adonis0123. (Tech: N/A | Last update: 2025-11-02)
+- **[remotion-demo](https://github.com/Adonis0123/remotion-demo)** - Open-source repository maintained by Adonis0123. (Last update: 2026-01-26)
+- **[weekly-flow](https://github.com/Adonis0123/weekly-flow)** - Open-source repository maintained by Adonis0123. (Last update: 2026-01-13)
+- **[bookmarks-manager-extension](https://github.com/Adonis0123/bookmarks-manager-extension)** - Open-source repository maintained by Adonis0123. (Last update: 2025-11-02)
 <!-- RECENT_REPOS:END -->
 
 ## Contact
