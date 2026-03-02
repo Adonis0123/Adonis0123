@@ -123,8 +123,8 @@ Production-ready engineering kit for building and scaling developer-focused prod
 
 <!-- RECENT_REPOS:START -->
 - **[remotion-demo](https://github.com/Adonis0123/remotion-demo)** - Open-source repository maintained by Adonis0123. (Last update: 2026-01-26)
-- **[weekly-flow](https://github.com/Adonis0123/weekly-flow)** - Open-source repository maintained by Adonis0123. (Last update: 2026-01-13)
 - **[bookmarks-manager-extension](https://github.com/Adonis0123/bookmarks-manager-extension)** - Open-source repository maintained by Adonis0123. (Last update: 2025-11-02)
+- **[vscode-plugin-git-setting-enable](https://github.com/Adonis0123/vscode-plugin-git-setting-enable)** - Open-source repository maintained by Adonis0123. (Last update: 2024-10-23)
 <!-- RECENT_REPOS:END -->
 
 ## Contact
