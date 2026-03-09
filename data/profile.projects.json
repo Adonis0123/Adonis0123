@@ -1,5 +1,13 @@
 [
   {
+    "name": "gemini-chrome-autoinstall",
+    "repo": "Adonis0123/gemini-chrome-autoinstall",
+    "demo": null,
+    "summary": "Open-source repository maintained by Adonis0123.",
+    "tech": [],
+    "updatedAt": "2026-03-08T08:43:58.000Z"
+  },
+  {
     "name": "remotion-demo",
     "repo": "Adonis0123/remotion-demo",
     "demo": null,
@@ -14,13 +22,5 @@
     "summary": "Open-source repository maintained by Adonis0123.",
     "tech": [],
     "updatedAt": "2025-11-02T15:28:23.000Z"
-  },
-  {
-    "name": "vscode-plugin-git-setting-enable",
-    "repo": "Adonis0123/vscode-plugin-git-setting-enable",
-    "demo": null,
-    "summary": "Open-source repository maintained by Adonis0123.",
-    "tech": [],
-    "updatedAt": "2024-10-23T05:48:06.000Z"
   }
 ]
