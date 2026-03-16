@@ -19,6 +19,7 @@
 - TypeScript enthusiast focused on reusable UI systems and automation workflows.
 - Turning internal scripts into production-ready OSS packages.
 - Prioritizing clean architecture, measurable outcomes, and fast iteration.
+- Writing daily learnings at [TIL Garden](https://adonis-til.mintlify.app/introduction).
 
 ## Tech Stack
 
