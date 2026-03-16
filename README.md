@@ -123,9 +123,9 @@ Production-ready engineering kit for building and scaling developer-focused prod
 ### 3) Recently Active Repositories (Auto-refreshed weekly)
 
 <!-- RECENT_REPOS:START -->
-- **[gemini-chrome-autoinstall](https://github.com/Adonis0123/gemini-chrome-autoinstall)** - Open-source repository maintained by Adonis0123. (Last update: 2026-03-08)
+- **[til-garden](https://github.com/Adonis0123/til-garden)** - Open-source repository maintained by Adonis0123. (Last update: 2026-03-16)
+- **[gemini-chrome-autoinstall](https://github.com/Adonis0123/gemini-chrome-autoinstall)** - Open-source repository maintained by Adonis0123. (Last update: 2026-03-11)
 - **[remotion-demo](https://github.com/Adonis0123/remotion-demo)** - Open-source repository maintained by Adonis0123. (Last update: 2026-01-26)
-- **[bookmarks-manager-extension](https://github.com/Adonis0123/bookmarks-manager-extension)** - Open-source repository maintained by Adonis0123. (Last update: 2025-11-02)
 <!-- RECENT_REPOS:END -->
 
 ## Contact
