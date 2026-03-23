@@ -123,8 +123,8 @@ Production-ready engineering kit for building and scaling developer-focused prod
 ### 3) Recently Active Repositories (Auto-refreshed weekly)
 
 <!-- RECENT_REPOS:START -->
-- **[til-garden](https://github.com/Adonis0123/til-garden)** - Open-source repository maintained by Adonis0123. (Last update: 2026-03-16)
-- **[gemini-chrome-autoinstall](https://github.com/Adonis0123/gemini-chrome-autoinstall)** - Open-source repository maintained by Adonis0123. (Last update: 2026-03-11)
+- **[til-garden](https://github.com/Adonis0123/til-garden)** - Open-source repository maintained by Adonis0123. (Last update: 2026-03-22)
+- **[gemini-chrome-autoinstall](https://github.com/Adonis0123/gemini-chrome-autoinstall)** - Auto-reinstall Gemini-in-Chrome extension after Chrome updates. Background watcher for macOS & Windows. (Tech: `automation`, `chrome`, `chrome-extension`, `gemini`, `launchd` | Last update: 2026-03-18)
 - **[remotion-demo](https://github.com/Adonis0123/remotion-demo)** - Open-source repository maintained by Adonis0123. (Last update: 2026-01-26)
 <!-- RECENT_REPOS:END -->
 

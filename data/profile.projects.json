@@ -5,15 +5,21 @@
     "demo": null,
     "summary": "Open-source repository maintained by Adonis0123.",
     "tech": [],
-    "updatedAt": "2026-03-16T01:57:03.000Z"
+    "updatedAt": "2026-03-22T06:11:56.000Z"
   },
   {
     "name": "gemini-chrome-autoinstall",
     "repo": "Adonis0123/gemini-chrome-autoinstall",
     "demo": null,
-    "summary": "Open-source repository maintained by Adonis0123.",
-    "tech": [],
-    "updatedAt": "2026-03-11T14:33:29.000Z"
+    "summary": "Auto-reinstall Gemini-in-Chrome extension after Chrome updates. Background watcher for macOS & Windows.",
+    "tech": [
+      "automation",
+      "chrome",
+      "chrome-extension",
+      "gemini",
+      "launchd"
+    ],
+    "updatedAt": "2026-03-18T06:27:21.000Z"
   },
   {
     "name": "remotion-demo",
