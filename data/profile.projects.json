@@ -1,5 +1,13 @@
 [
   {
+    "name": "til-garden",
+    "repo": "Adonis0123/til-garden",
+    "demo": null,
+    "summary": "Open-source repository maintained by Adonis0123.",
+    "tech": [],
+    "updatedAt": "2026-04-22T02:05:39.000Z"
+  },
+  {
     "name": "gemini-chrome-autoinstall",
     "repo": "Adonis0123/gemini-chrome-autoinstall",
     "demo": null,
@@ -12,14 +20,6 @@
       "launchd"
     ],
     "updatedAt": "2026-04-06T09:19:44.000Z"
-  },
-  {
-    "name": "til-garden",
-    "repo": "Adonis0123/til-garden",
-    "demo": null,
-    "summary": "Open-source repository maintained by Adonis0123.",
-    "tech": [],
-    "updatedAt": "2026-04-06T08:41:53.000Z"
   },
   {
     "name": "remotion-demo",
