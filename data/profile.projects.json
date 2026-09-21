@@ -1,5 +1,13 @@
 [
   {
+    "name": "nookmark",
+    "repo": "Adonis0123/nookmark",
+    "demo": null,
+    "summary": "Chrome/Edge bookmark manager as a WXT extension",
+    "tech": [],
+    "updatedAt": "2026-09-19T08:26:51.000Z"
+  },
+  {
     "name": "til-garden",
     "repo": "Adonis0123/til-garden",
     "demo": null,
@@ -20,13 +28,5 @@
       "launchd"
     ],
     "updatedAt": "2026-05-07T09:25:43.000Z"
-  },
-  {
-    "name": "vscode-plugin-git-setting-enable",
-    "repo": "Adonis0123/vscode-plugin-git-setting-enable",
-    "demo": null,
-    "summary": "Open-source repository maintained by Adonis0123.",
-    "tech": [],
-    "updatedAt": "2024-10-23T05:48:06.000Z"
   }
 ]
