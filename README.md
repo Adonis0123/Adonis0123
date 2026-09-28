@@ -123,9 +123,9 @@ Production-ready engineering kit for building and scaling developer-focused prod
 ### 3) Recently Active Repositories (Auto-refreshed weekly)
 
 <!-- RECENT_REPOS:START -->
+- **[hermes-kit](https://github.com/Adonis0123/hermes-kit)** - Hermes Agent plugins, skills and guides by Adonis0123 (Last update: 2026-09-23)
+- **[adonis-pi](https://github.com/Adonis0123/adonis-pi)** - Pi Package: permission gate, attention notify, AskUserQuestion tool and multi-account launcher for pi (Last update: 2026-09-22)
 - **[nookmark](https://github.com/Adonis0123/nookmark)** - Chrome/Edge bookmark manager as a WXT extension (Last update: 2026-09-19)
-- **[til-garden](https://github.com/Adonis0123/til-garden)** - Open-source repository maintained by Adonis0123. (Last update: 2026-07-14)
-- **[gemini-chrome-autoinstall](https://github.com/Adonis0123/gemini-chrome-autoinstall)** - Auto-reinstall Gemini-in-Chrome extension after Chrome updates. Background watcher for macOS & Windows. (Tech: `automation`, `chrome`, `chrome-extension`, `gemini`, `launchd` | Last update: 2026-05-07)
 <!-- RECENT_REPOS:END -->
 
 ## Contact
