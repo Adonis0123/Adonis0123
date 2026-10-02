@@ -374,6 +374,17 @@ export function renderLatestTilMarkdown(posts) {
 }
 
 /**
+ * Builds the commit search query. `is:public` keeps a personal token with
+ * private-repo access from inflating the "public commits" number.
+ * @param {string} username
+ * @param {string} since - `YYYY-MM-DD`
+ * @returns {string}
+ */
+export function buildCommitSearchQuery(username, since) {
+  return `author:${username} author-date:>=${since} is:public`;
+}
+
+/**
  * Fetches profile stats: published skill count and recent public commits.
  * @returns {Promise<{ skillCount: number, commitCount: number }>}
  */
@@ -388,7 +399,7 @@ async function fetchProfileStats() {
     .toISOString()
     .slice(0, 10);
   const search = await ghFetch(
-    `/search/commits?q=${encodeURIComponent(`author:${PROFILE_USERNAME} author-date:>=${since}`)}&per_page=1`,
+    `/search/commits?q=${encodeURIComponent(buildCommitSearchQuery(PROFILE_USERNAME, since))}&per_page=1`,
   );
 
   return { skillCount, commitCount: search.total_count };

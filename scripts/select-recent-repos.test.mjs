@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import { describe, it } from "node:test";
 
 import {
+  buildCommitSearchQuery,
   collectDocsPages,
   countPublishedSkills,
   isQualityCandidate,
@@ -71,6 +72,15 @@ describe("countPublishedSkills", () => {
     ];
 
     assert.equal(countPublishedSkills(paths), 2);
+  });
+});
+
+describe("buildCommitSearchQuery", () => {
+  it("limits the search to public commits", () => {
+    assert.equal(
+      buildCommitSearchQuery("Adonis0123", "2026-09-02"),
+      "author:Adonis0123 author-date:>=2026-09-02 is:public",
+    );
   });
 });
 
