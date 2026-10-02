@@ -5,10 +5,12 @@
  *
  * Fetches public repositories from GitHub API, filters for quality candidates,
  * and updates both `data/profile.projects.json` and `README.md` with the most
- * recently active repos. Designed to run in GitHub Actions on a weekly cron.
+ * recently active repos. Also refreshes the profile stats line and the latest
+ * TIL Garden posts. Designed to run in GitHub Actions on a weekly cron.
  */
 
 import { readFile, writeFile } from "node:fs/promises";
+import { pathToFileURL } from "node:url";
 
 /**
  * @typedef {Object} GitHubRepo
@@ -32,19 +34,52 @@ import { readFile, writeFile } from "node:fs/promises";
  * @property {string|null} updatedAt
  */
 
+/**
+ * @typedef {Object} TilPost
+ * @property {string} title
+ * @property {string} url
+ * @property {string} date
+ */
+
 const PROFILE_USERNAME = process.env.PROFILE_USERNAME || "Adonis0123";
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN || "";
 const OUTPUT_JSON = "data/profile.projects.json";
 const README_PATH = "README.md";
 const COUNT = Number(process.env.RECENT_REPO_COUNT || "3");
+const LATEST_TIL_COUNT = Number(process.env.LATEST_TIL_COUNT || "3");
+const STATS_WINDOW_DAYS = 30;
 
 const FIXED_FEATURED_REPOS = new Set(
   (process.env.FIXED_FEATURED_REPOS ||
-    `${PROFILE_USERNAME}/adonis-kit,${PROFILE_USERNAME}/adonis-skills`)
+    [
+      "adonis-skills",
+      "hermes-kit",
+      "adonis-pi",
+      "gemini-chrome-autoinstall",
+    ]
+      .map((name) => `${PROFILE_USERNAME}/${name}`)
+      .join(","))
     .split(",")
     .map((item) => item.trim().toLowerCase())
     .filter(Boolean),
 );
+
+const SKILL_REPOS = (process.env.SKILL_REPOS ||
+  `${PROFILE_USERNAME}/adonis-skills,${PROFILE_USERNAME}/hermes-kit`)
+  .split(",")
+  .map((item) => item.trim())
+  .filter(Boolean);
+
+const TIL_REPO = process.env.TIL_REPO || `${PROFILE_USERNAME}/til-garden`;
+const TIL_SITE_URL = (
+  process.env.TIL_SITE_URL || "https://adonis-til.mintlify.app"
+).replace(/\/+$/, "");
+
+const AGENT_HOSTS = ["Claude Code", "Codex", "Cursor", "Hermes", "pi"];
+
+// Only `skills/<name>/SKILL.md` counts as a published skill; copies under
+// `.agents/` or `.claude/` are repo-internal tooling.
+const PUBLISHED_SKILL_PATH = /^skills\/[^/]+\/SKILL\.md$/;
 
 const FALLBACK_REPOS = (process.env.FALLBACK_REPOS || "")
   .split(",")
@@ -117,6 +152,28 @@ async function ghFetch(pathname) {
 }
 
 /**
+ * Fetches a repository file as raw text via the contents API.
+ * @param {string} fullName - Repository full name (e.g. `owner/repo`)
+ * @param {string} filePath - Path inside the repository
+ * @returns {Promise<string|null>} `null` when the file does not exist
+ * @throws {Error} On non-OK responses other than 404
+ */
+async function ghFetchText(fullName, filePath) {
+  const pathname = `/repos/${fullName}/contents/${filePath}`;
+  const response = await fetch(`https://api.github.com${pathname}`, {
+    headers: { ...buildHeaders(), Accept: "application/vnd.github.raw+json" },
+  });
+
+  if (response.status === 404) return null;
+  if (!response.ok) {
+    const body = await response.text();
+    throw new Error(`GitHub API request failed (${response.status}) for ${pathname}: ${body}`);
+  }
+
+  return response.text();
+}
+
+/**
  * Checks whether a repository has a README file via the GitHub API.
  * @param {string} fullName - Repository full name (e.g. `owner/repo`)
  * @returns {Promise<boolean>}
@@ -158,7 +215,7 @@ async function listPublicRepos(username) {
  * @param {GitHubRepo} repo
  * @returns {boolean}
  */
-function isQualityCandidate(repo) {
+export function isQualityCandidate(repo) {
   if (!repo || !repo.full_name) return false;
   if (repo.fork || repo.archived || repo.disabled) return false;
   if (EXCLUDE_PATTERN.test(repo.name || "")) return false;
@@ -174,7 +231,7 @@ function isQualityCandidate(repo) {
  * @param {string} [fallbackSummary]
  * @returns {Project}
  */
-function toProject(repo, fallbackSummary) {
+export function toProject(repo, fallbackSummary) {
   const topics = Array.isArray(repo.topics)
     ? repo.topics.filter(Boolean).slice(0, 5)
     : [];
@@ -197,7 +254,7 @@ function toProject(repo, fallbackSummary) {
  * @param {Project[]} projects
  * @returns {string}
  */
-function renderRecentReposMarkdown(projects) {
+export function renderRecentReposMarkdown(projects) {
   const lines = projects.map((project) => {
     const hasTech = project.tech && project.tech.length > 0;
     const techPart = hasTech
@@ -214,29 +271,172 @@ function renderRecentReposMarkdown(projects) {
 }
 
 /**
- * Replaces content between `<!-- RECENT_REPOS:START/END -->` markers in README.md.
+ * Replaces content between `<!-- NAME:START -->` and `<!-- NAME:END -->` markers.
+ * @param {string} readme - Full README content
+ * @param {string} name - Marker name (e.g. `RECENT_REPOS`)
  * @param {string} markdown - Rendered markdown to inject
- * @returns {Promise<void>}
+ * @returns {string}
+ * @throws {Error} When the marker pair is missing
  */
-async function updateReadmeBlock(markdown) {
-  const startMarker = "<!-- RECENT_REPOS:START -->";
-  const endMarker = "<!-- RECENT_REPOS:END -->";
-  const readme = await readFile(README_PATH, "utf8");
-  const regex = new RegExp(
-    `(${startMarker})([\\s\\S]*?)(${endMarker})`,
-    "m",
-  );
+export function replaceMarkerBlock(readme, name, markdown) {
+  const startMarker = `<!-- ${name}:START -->`;
+  const endMarker = `<!-- ${name}:END -->`;
+  const regex = new RegExp(`(${startMarker})([\\s\\S]*?)(${endMarker})`, "m");
 
   if (!regex.test(readme)) {
-    throw new Error("README markers for recent repositories were not found.");
+    throw new Error(`README markers for ${name} were not found.`);
   }
 
-  const replaced = readme.replace(
-    regex,
-    `${startMarker}\n${markdown}\n${endMarker}`,
+  return readme.replace(regex, () => `${startMarker}\n${markdown}\n${endMarker}`);
+}
+
+/**
+ * Counts published skills (`skills/<name>/SKILL.md`) in a git tree path list.
+ * @param {string[]} paths
+ * @returns {number}
+ */
+export function countPublishedSkills(paths) {
+  return paths.filter((path) => PUBLISHED_SKILL_PATH.test(path)).length;
+}
+
+/**
+ * Renders the one-line profile stats block.
+ * @param {{ skillCount: number, commitCount: number }} stats
+ * @returns {string}
+ */
+export function renderStatsMarkdown({ skillCount, commitCount }) {
+  return [
+    `<p align="center">`,
+    `  <b>${skillCount}</b> published skills · runs in ${AGENT_HOSTS.join(" · ")} · <b>${commitCount}</b> public commits in the last ${STATS_WINDOW_DAYS} days`,
+    `</p>`,
+  ].join("\n");
+}
+
+/**
+ * Collects page slugs from a Mintlify `docs.json` navigation tree, in order.
+ * @param {unknown} node - `navigation` object or any nested tab/group/page
+ * @returns {string[]}
+ */
+export function collectDocsPages(node) {
+  if (typeof node === "string") return [node];
+  if (Array.isArray(node)) return node.flatMap(collectDocsPages);
+  if (!node || typeof node !== "object") return [];
+
+  return ["tabs", "groups", "pages"].flatMap((key) =>
+    key in node ? collectDocsPages(node[key]) : [],
+  );
+}
+
+/**
+ * Reads flat `key: value` pairs from a markdown frontmatter block.
+ * Multi-line YAML values are ignored; only simple scalars are needed here.
+ * @param {string} text
+ * @returns {Record<string, string>}
+ */
+export function parseFrontmatter(text) {
+  const match = /^---\r?\n([\s\S]*?)\r?\n---/.exec(text);
+  if (!match) return {};
+
+  const fields = {};
+  for (const line of match[1].split(/\r?\n/)) {
+    const pair = /^([A-Za-z_][\w-]*):\s*(.+)$/.exec(line);
+    if (!pair) continue;
+    fields[pair[1]] = pair[2].trim().replace(/^(['"])(.*)\1$/, "$2");
+  }
+  return fields;
+}
+
+/**
+ * Picks the newest posts by publish date (`YYYY-MM-DD`), skipping undated ones.
+ * @param {TilPost[]} posts
+ * @param {number} count
+ * @returns {TilPost[]}
+ */
+export function selectLatestTil(posts, count) {
+  return posts
+    .filter((post) => /^\d{4}-\d{2}-\d{2}/.test(post.date))
+    .sort((a, b) => b.date.localeCompare(a.date))
+    .slice(0, count);
+}
+
+/**
+ * Renders TIL posts as a markdown bullet list.
+ * @param {TilPost[]} posts
+ * @returns {string}
+ */
+export function renderLatestTilMarkdown(posts) {
+  return posts
+    .map((post) => {
+      const title = post.title.replace(/[[\]]/g, "\\$&");
+      return `- [${title}](${post.url}) · ${post.date.slice(0, 10)}`;
+    })
+    .join("\n");
+}
+
+/**
+ * Fetches profile stats: published skill count and recent public commits.
+ * @returns {Promise<{ skillCount: number, commitCount: number }>}
+ */
+async function fetchProfileStats() {
+  let skillCount = 0;
+  for (const repo of SKILL_REPOS) {
+    const tree = await ghFetch(`/repos/${repo}/git/trees/HEAD?recursive=1`);
+    skillCount += countPublishedSkills(tree.tree.map((entry) => entry.path));
+  }
+
+  const since = new Date(Date.now() - STATS_WINDOW_DAYS * 24 * 60 * 60 * 1000)
+    .toISOString()
+    .slice(0, 10);
+  const search = await ghFetch(
+    `/search/commits?q=${encodeURIComponent(`author:${PROFILE_USERNAME} author-date:>=${since}`)}&per_page=1`,
   );
 
-  await writeFile(README_PATH, replaced, "utf8");
+  return { skillCount, commitCount: search.total_count };
+}
+
+/**
+ * Fetches TIL Garden posts listed in `docs.json` with their frontmatter.
+ * @returns {Promise<TilPost[]>}
+ */
+async function fetchTilPosts() {
+  const docsJson = await ghFetchText(TIL_REPO, "docs.json");
+  if (!docsJson) throw new Error(`docs.json not found in ${TIL_REPO}.`);
+
+  const pages = collectDocsPages(JSON.parse(docsJson).navigation).filter(
+    (page) => page !== "introduction",
+  );
+
+  const posts = [];
+  // Sequential on purpose, same as the README gate: avoids API bursts.
+  for (const page of pages) {
+    const text =
+      (await ghFetchText(TIL_REPO, `${page}.mdx`)) ??
+      (await ghFetchText(TIL_REPO, `${page}.md`));
+    if (!text) continue;
+
+    const { title, date } = parseFrontmatter(text);
+    if (!title || !date) continue;
+    posts.push({ title, url: `${TIL_SITE_URL}/${page}`, date });
+  }
+
+  return posts;
+}
+
+/**
+ * Runs a block loader; logs and returns `null` on failure so the README keeps
+ * its previous content for that block instead of losing it.
+ * @template T
+ * @param {string} label
+ * @param {() => Promise<T>} load
+ * @returns {Promise<T|null>}
+ */
+async function tryLoad(label, load) {
+  try {
+    return await load();
+  } catch (error) {
+    console.warn(`Skipping ${label} refresh: ${String(error)}`);
+    return null;
+  }
 }
 
 /**
@@ -320,12 +520,23 @@ async function main() {
 
   const finalProjects = selected.slice(0, COUNT);
 
-  await writeFile(OUTPUT_JSON, `${JSON.stringify(finalProjects, null, 2)}\n`, "utf8");
-  await updateReadmeBlock(renderRecentReposMarkdown(finalProjects));
+  const stats = await tryLoad("profile stats", fetchProfileStats);
+  const tilPosts = await tryLoad("latest TIL", fetchTilPosts);
+  const latestTil = tilPosts ? selectLatestTil(tilPosts, LATEST_TIL_COUNT) : [];
 
-  console.log(
-    `Updated ${OUTPUT_JSON} and README recent repositories block for ${PROFILE_USERNAME}.`,
-  );
+  let readme = await readFile(README_PATH, "utf8");
+  readme = replaceMarkerBlock(readme, "RECENT_REPOS", renderRecentReposMarkdown(finalProjects));
+  if (stats) readme = replaceMarkerBlock(readme, "PROFILE_STATS", renderStatsMarkdown(stats));
+  if (latestTil.length > 0) {
+    readme = replaceMarkerBlock(readme, "LATEST_TIL", renderLatestTilMarkdown(latestTil));
+  }
+
+  await writeFile(OUTPUT_JSON, `${JSON.stringify(finalProjects, null, 2)}\n`, "utf8");
+  await writeFile(README_PATH, readme, "utf8");
+
+  console.log(`Updated ${OUTPUT_JSON} and README blocks for ${PROFILE_USERNAME}.`);
 }
 
-await main();
+if (import.meta.url === pathToFileURL(process.argv[1] ?? "").href) {
+  await main();
+}

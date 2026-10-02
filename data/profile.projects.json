@@ -1,26 +1,26 @@
 [
   {
-    "name": "hermes-kit",
-    "repo": "Adonis0123/hermes-kit",
-    "demo": null,
-    "summary": "Hermes Agent plugins, skills and guides by Adonis0123",
-    "tech": [],
-    "updatedAt": "2026-09-23T16:24:18.000Z"
-  },
-  {
-    "name": "adonis-pi",
-    "repo": "Adonis0123/adonis-pi",
-    "demo": null,
-    "summary": "Pi Package: permission gate, attention notify, AskUserQuestion tool and multi-account launcher for pi",
-    "tech": [],
-    "updatedAt": "2026-09-22T14:00:39.000Z"
-  },
-  {
     "name": "nookmark",
     "repo": "Adonis0123/nookmark",
     "demo": null,
     "summary": "Chrome/Edge bookmark manager as a WXT extension",
     "tech": [],
     "updatedAt": "2026-09-19T08:26:51.000Z"
+  },
+  {
+    "name": "til-garden",
+    "repo": "Adonis0123/til-garden",
+    "demo": null,
+    "summary": "Open-source repository maintained by Adonis0123.",
+    "tech": [],
+    "updatedAt": "2026-07-14T09:59:44.000Z"
+  },
+  {
+    "name": "adonis-kit",
+    "repo": "Adonis0123/adonis-kit",
+    "demo": null,
+    "summary": "Open-source repository maintained by Adonis0123.",
+    "tech": [],
+    "updatedAt": "2026-02-18T03:36:52.000Z"
   }
 ]
