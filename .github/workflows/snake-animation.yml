@@ -3,7 +3,7 @@ name: Snake Animation
 on:
   workflow_dispatch:
   schedule:
-    - cron: "0 4 * * 1"
+    - cron: "0 4 * * *"
 
 permissions:
   contents: write

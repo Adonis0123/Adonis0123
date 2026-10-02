@@ -22,6 +22,6 @@ GITHUB_TOKEN=<token> node scripts/select-recent-repos.mjs
 
 1. Verify `scripts/select-recent-repos.mjs` runs without errors (may need `GITHUB_TOKEN`).
 2. Run `pnpm test`.
-3. Confirm `README.md` markers (`RECENT_REPOS`, `PROFILE_STATS`, `LATEST_TIL` START/END pairs) are intact after changes.
+3. Confirm `README.md` markers (`RECENT_REPOS`, `PROFILE_STATS`, `SKILL_OF_WEEK`, `SHIPPED_THIS_WEEK`, `LATEST_TIL` START/END pairs) are intact after changes.
 4. Confirm `data/profile.projects.json` is valid JSON.
 5. Run `pnpm run ruler:apply` after editing `.ruler/*.md` templates.

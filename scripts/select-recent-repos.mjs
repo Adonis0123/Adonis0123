@@ -48,6 +48,9 @@ const README_PATH = "README.md";
 const COUNT = Number(process.env.RECENT_REPO_COUNT || "3");
 const LATEST_TIL_COUNT = Number(process.env.LATEST_TIL_COUNT || "3");
 const STATS_WINDOW_DAYS = 30;
+const SHIPPED_WINDOW_DAYS = 7;
+const SHIPPED_COUNT = Number(process.env.SHIPPED_COUNT || "5");
+const DAY_MS = 24 * 60 * 60 * 1000;
 
 const FIXED_FEATURED_REPOS = new Set(
   (process.env.FIXED_FEATURED_REPOS ||
@@ -70,6 +73,9 @@ const SKILL_REPOS = (process.env.SKILL_REPOS ||
   .map((item) => item.trim())
   .filter(Boolean);
 
+const SKILL_OF_WEEK_REPO =
+  process.env.SKILL_OF_WEEK_REPO || `${PROFILE_USERNAME}/adonis-skills`;
+
 const TIL_REPO = process.env.TIL_REPO || `${PROFILE_USERNAME}/til-garden`;
 const TIL_SITE_URL = (
   process.env.TIL_SITE_URL || "https://adonis-til.mintlify.app"
@@ -80,6 +86,9 @@ const AGENT_HOSTS = ["Claude Code", "Codex", "Cursor", "Hermes", "pi"];
 // Only `skills/<name>/SKILL.md` counts as a published skill; copies under
 // `.agents/` or `.claude/` are repo-internal tooling.
 const PUBLISHED_SKILL_PATH = /^skills\/[^/]+\/SKILL\.md$/;
+
+// Sync exports, profile refreshes and merges say nothing about shipped work.
+const NOISE_COMMIT = /(^|\s)chore\((sync|profile)\):|^Merge /;
 
 const FALLBACK_REPOS = (process.env.FALLBACK_REPOS || "")
   .split(",")
@@ -395,9 +404,7 @@ async function fetchProfileStats() {
     skillCount += countPublishedSkills(tree.tree.map((entry) => entry.path));
   }
 
-  const since = new Date(Date.now() - STATS_WINDOW_DAYS * 24 * 60 * 60 * 1000)
-    .toISOString()
-    .slice(0, 10);
+  const since = daysAgo(STATS_WINDOW_DAYS);
   const search = await ghFetch(
     `/search/commits?q=${encodeURIComponent(buildCommitSearchQuery(PROFILE_USERNAME, since))}&per_page=1`,
   );
@@ -431,6 +438,138 @@ async function fetchTilPosts() {
   }
 
   return posts;
+}
+
+/**
+ * Returns the `YYYY-MM-DD` date `days` days before now.
+ * @param {number} days
+ * @returns {string}
+ */
+function daysAgo(days) {
+  return new Date(Date.now() - days * DAY_MS).toISOString().slice(0, 10);
+}
+
+/**
+ * @typedef {Object} ShippedCommit
+ * @property {string} repo - Repository full name
+ * @property {string} subject - First line of the commit message
+ * @property {string} url
+ * @property {string} date - ISO 8601
+ */
+
+/**
+ * Picks the newest meaningful commits, dropping noise and blocked repos.
+ * @param {ShippedCommit[]} commits
+ * @param {number} count
+ * @returns {ShippedCommit[]}
+ */
+export function selectShippedCommits(commits, count) {
+  return commits
+    .filter((commit) => !NOISE_COMMIT.test(commit.subject))
+    .filter((commit) => !BLOCKED_REPOS.has(commit.repo.toLowerCase()))
+    .sort((a, b) => b.date.localeCompare(a.date))
+    .slice(0, count);
+}
+
+/**
+ * Renders shipped commits as a markdown bullet list.
+ * @param {ShippedCommit[]} commits
+ * @returns {string}
+ */
+export function renderShippedMarkdown(commits) {
+  if (commits.length === 0) return "_A quiet week — nothing public shipped._";
+
+  return commits
+    .map((commit) => {
+      const name = commit.repo.split("/").pop();
+      const subject = commit.subject.replace(/[[\]]/g, "\\$&");
+      return `- \`${name}\` [${subject}](${commit.url}) · ${commit.date.slice(0, 10)}`;
+    })
+    .join("\n");
+}
+
+/**
+ * Picks one item per calendar week (weeks counted from the Unix epoch), so the
+ * choice rotates weekly and is stable within a week.
+ * @template T
+ * @param {T[]} items
+ * @param {number} nowMs
+ * @returns {T|undefined}
+ */
+export function pickWeeklyItem(items, nowMs) {
+  if (items.length === 0) return undefined;
+  const week = Math.floor(nowMs / (7 * DAY_MS));
+  return items[week % items.length];
+}
+
+/**
+ * Shortens a skill description to its first sentence, capped at `max` chars.
+ * @param {string} text
+ * @param {number} [max]
+ * @returns {string}
+ */
+export function summarizeDescription(text, max = 160) {
+  const firstSentence = text.trim().split(/(?<=[.!?])\s/)[0];
+  if (firstSentence.length <= max) return firstSentence;
+
+  const cut = firstSentence.slice(0, max);
+  return `${cut.slice(0, cut.lastIndexOf(" ")).replace(/[,;:]$/, "")}…`;
+}
+
+/**
+ * Renders the Skill of the Week block.
+ * @param {{ name: string, summary: string, repo: string }} skill
+ * @returns {string}
+ */
+export function renderSkillOfWeekMarkdown({ name, summary, repo }) {
+  return [
+    `**[${name}](https://github.com/${repo}/tree/HEAD/skills/${name})** — ${summary}`,
+    "",
+    "```bash",
+    `npx skills add ${repo.toLowerCase()} --skill ${name}`,
+    "```",
+  ].join("\n");
+}
+
+/**
+ * Fetches public commits from the last week via the commit search API.
+ * @returns {Promise<ShippedCommit[]>}
+ */
+async function fetchShippedCommits() {
+  const query = buildCommitSearchQuery(PROFILE_USERNAME, daysAgo(SHIPPED_WINDOW_DAYS));
+  const search = await ghFetch(
+    `/search/commits?q=${encodeURIComponent(query)}&sort=author-date&order=desc&per_page=50`,
+  );
+
+  return search.items.map((item) => ({
+    repo: item.repository.full_name,
+    subject: item.commit.message.split("\n")[0],
+    url: item.html_url,
+    date: item.commit.author.date,
+  }));
+}
+
+/**
+ * Fetches this week's skill: name from the published skill list, summary from
+ * its `SKILL.md` frontmatter.
+ * @returns {Promise<{ name: string, summary: string, repo: string }>}
+ */
+async function fetchSkillOfWeek() {
+  const tree = await ghFetch(`/repos/${SKILL_OF_WEEK_REPO}/git/trees/HEAD?recursive=1`);
+  const names = tree.tree
+    .map((entry) => entry.path)
+    .filter((path) => PUBLISHED_SKILL_PATH.test(path))
+    .map((path) => path.split("/")[1])
+    .sort();
+
+  const name = pickWeeklyItem(names, Date.now());
+  if (!name) throw new Error(`No published skills found in ${SKILL_OF_WEEK_REPO}.`);
+
+  const text = await ghFetchText(SKILL_OF_WEEK_REPO, `skills/${name}/SKILL.md`);
+  const { description } = parseFrontmatter(text || "");
+  if (!description) throw new Error(`skills/${name}/SKILL.md has no description.`);
+
+  return { name, summary: summarizeDescription(description), repo: SKILL_OF_WEEK_REPO };
 }
 
 /**
@@ -534,10 +673,22 @@ async function main() {
   const stats = await tryLoad("profile stats", fetchProfileStats);
   const tilPosts = await tryLoad("latest TIL", fetchTilPosts);
   const latestTil = tilPosts ? selectLatestTil(tilPosts, LATEST_TIL_COUNT) : [];
+  const shipped = await tryLoad("shipped this week", fetchShippedCommits);
+  const skillOfWeek = await tryLoad("skill of the week", fetchSkillOfWeek);
 
   let readme = await readFile(README_PATH, "utf8");
   readme = replaceMarkerBlock(readme, "RECENT_REPOS", renderRecentReposMarkdown(finalProjects));
   if (stats) readme = replaceMarkerBlock(readme, "PROFILE_STATS", renderStatsMarkdown(stats));
+  if (shipped) {
+    readme = replaceMarkerBlock(
+      readme,
+      "SHIPPED_THIS_WEEK",
+      renderShippedMarkdown(selectShippedCommits(shipped, SHIPPED_COUNT)),
+    );
+  }
+  if (skillOfWeek) {
+    readme = replaceMarkerBlock(readme, "SKILL_OF_WEEK", renderSkillOfWeekMarkdown(skillOfWeek));
+  }
   if (latestTil.length > 0) {
     readme = replaceMarkerBlock(readme, "LATEST_TIL", renderLatestTilMarkdown(latestTil));
   }

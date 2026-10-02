@@ -11,7 +11,7 @@
 
 <!-- PROFILE_STATS:START -->
 <p align="center">
-  <b>35</b> published skills · runs in Claude Code · Codex · Cursor · Hermes · pi · <b>65</b> public commits in the last 30 days
+  <b>35</b> published skills · runs in Claude Code · Codex · Cursor · Hermes · pi · <b>66</b> public commits in the last 30 days
 </p>
 <!-- PROFILE_STATS:END -->
 
@@ -62,13 +62,37 @@ pin setup 1
 
 ### [gemini-chrome-autoinstall](https://github.com/Adonis0123/gemini-chrome-autoinstall)
 
-<a href="https://github.com/Adonis0123/gemini-chrome-autoinstall/stargazers"><img src="https://img.shields.io/github/stars/Adonis0123/gemini-chrome-autoinstall?style=flat-square&color=58A6FF" alt="Stars" /></a> <a href="https://github.com/Adonis0123/gemini-chrome-autoinstall/commits"><img src="https://img.shields.io/github/last-commit/Adonis0123/gemini-chrome-autoinstall?style=flat-square&label=last%20commit" alt="Last commit" /></a>
+<a href="https://github.com/Adonis0123/gemini-chrome-autoinstall/stargazers"><img src="https://img.shields.io/github/stars/Adonis0123/gemini-chrome-autoinstall?style=flat-square&color=58A6FF" alt="Stars" /></a> <a href="https://github.com/Adonis0123/gemini-chrome-autoinstall/commits"><img src="https://img.shields.io/github/last-commit/Adonis0123/gemini-chrome-autoinstall?style=flat-square&label=last%20commit" alt="Last commit" /></a> <a href="https://github.com/Adonis0123/gemini-chrome-autoinstall/releases"><img src="https://img.shields.io/github/v/release/Adonis0123/gemini-chrome-autoinstall?style=flat-square&label=release&color=00c4b4" alt="Latest release" /></a>
 
 A self-healing wrapper that keeps [Gemini-in-Chrome](https://github.com/appsail/Gemini-in-Chrome) working after Chrome updates: it watches for version changes and repairs `Local State` only when it is safe to write. macOS and Windows.
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/Adonis0123/gemini-chrome-autoinstall/master/install.sh | bash
 ```
+
+## Skill of the Week
+
+A different skill from [adonis-skills](https://github.com/Adonis0123/adonis-skills) every week.
+
+<!-- SKILL_OF_WEEK:START -->
+**[web-performance-audit](https://github.com/Adonis0123/adonis-skills/tree/HEAD/skills/web-performance-audit)** — Run a read-only, evidence-led runtime performance audit of a real web application, especially authenticated editors, dashboards, media tools, long-lived SPAs…
+
+```bash
+npx skills add adonis0123/adonis-skills --skill web-performance-audit
+```
+<!-- SKILL_OF_WEEK:END -->
+
+## Shipped This Week
+
+My latest public commits, refreshed weekly.
+
+<!-- SHIPPED_THIS_WEEK:START -->
+- `adonis-pi` [✨ feat(mcp): switch to pi's built-in MCP Client and drop pi-mcp-adapter](https://github.com/Adonis0123/adonis-pi/commit/9364b3cbc8491e6963b0c19af4e8a5a6b4cdbfb3) · 2026-10-02
+- `adonis-skills` [🐛 fix(commit-push): recover once from a non-fast-forward push](https://github.com/Adonis0123/adonis-skills/commit/1573a0f58ea947db8d777c74c45823b37a51d5a8) · 2026-10-02
+- `adonis-skills` [♻️ refactor(workflow-gate): replace line caps with the field format](https://github.com/Adonis0123/adonis-skills/commit/bfad8cbd69479e1f6c931a5817f6213a91873792) · 2026-10-02
+- `adonis-skills` [📝 docs(agentic-review-handoff): state current rules without incident history](https://github.com/Adonis0123/adonis-skills/commit/21d6db0e4261553ec6c555e6e37e72c1bbd130f0) · 2026-10-02
+- `adonis-skills` [✨ feat(skills): add unattended continuation guidance and update skill versions](https://github.com/Adonis0123/adonis-skills/commit/71eec52997df9448b9e519a61b9c8599427a9135) · 2026-10-02
+<!-- SHIPPED_THIS_WEEK:END -->
 
 ## More Projects
 
