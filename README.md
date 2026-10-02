@@ -11,7 +11,7 @@
 
 <!-- PROFILE_STATS:START -->
 <p align="center">
-  <b>35</b> published skills · runs in Claude Code · Codex · Cursor · Hermes · pi · <b>341</b> public commits in the last 30 days
+  <b>35</b> published skills · runs in Claude Code · Codex · Cursor · Hermes · pi · <b>64</b> public commits in the last 30 days
 </p>
 <!-- PROFILE_STATS:END -->
 
@@ -76,8 +76,8 @@ Auto-selected every week from my most recently pushed public repositories.
 
 <!-- RECENT_REPOS:START -->
 - **[nookmark](https://github.com/Adonis0123/nookmark)** - Chrome/Edge bookmark manager as a WXT extension (Last update: 2026-09-19)
-- **[til-garden](https://github.com/Adonis0123/til-garden)** - Open-source repository maintained by Adonis0123. (Last update: 2026-07-14)
-- **[adonis-kit](https://github.com/Adonis0123/adonis-kit)** - Open-source repository maintained by Adonis0123. (Last update: 2026-02-18)
+- **[til-garden](https://github.com/Adonis0123/til-garden)** - Today I Learned notes on AI agents, frontend and developer tools (Last update: 2026-07-14)
+- **[adonis-kit](https://github.com/Adonis0123/adonis-kit)** - Production-ready engineering kit for building and scaling developer-focused products (Tech: `react`, `typescript`, `ui-components`, `vercel` | Last update: 2026-02-18)
 <!-- RECENT_REPOS:END -->
 
 ## Latest TIL

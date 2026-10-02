@@ -11,7 +11,7 @@
     "name": "til-garden",
     "repo": "Adonis0123/til-garden",
     "demo": null,
-    "summary": "Open-source repository maintained by Adonis0123.",
+    "summary": "Today I Learned notes on AI agents, frontend and developer tools",
     "tech": [],
     "updatedAt": "2026-07-14T09:59:44.000Z"
   },
@@ -19,8 +19,13 @@
     "name": "adonis-kit",
     "repo": "Adonis0123/adonis-kit",
     "demo": null,
-    "summary": "Open-source repository maintained by Adonis0123.",
-    "tech": [],
+    "summary": "Production-ready engineering kit for building and scaling developer-focused products",
+    "tech": [
+      "react",
+      "typescript",
+      "ui-components",
+      "vercel"
+    ],
     "updatedAt": "2026-02-18T03:36:52.000Z"
   }
 ]
