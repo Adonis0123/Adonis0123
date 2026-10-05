@@ -11,7 +11,7 @@
 
 <!-- PROFILE_STATS:START -->
 <p align="center">
-  <b>35</b> published skills · runs in Claude Code · Codex · Cursor · Hermes · pi · <b>67</b> public commits in the last 30 days
+  <b>35</b> published skills · runs in Claude Code · Codex · Cursor · Hermes · pi · <b>82</b> public commits in the last 30 days
 </p>
 <!-- PROFILE_STATS:END -->
 
@@ -87,11 +87,11 @@ npx skills add adonis0123/adonis-skills --skill web-performance-audit
 My latest public commits, refreshed weekly.
 
 <!-- SHIPPED_THIS_WEEK:START -->
-- `adonis-pi` [✨ feat(mcp): switch to pi's built-in MCP Client and drop pi-mcp-adapter](https://github.com/Adonis0123/adonis-pi/commit/9364b3cbc8491e6963b0c19af4e8a5a6b4cdbfb3) · 2026-10-02
-- `adonis-skills` [🐛 fix(commit-push): recover once from a non-fast-forward push](https://github.com/Adonis0123/adonis-skills/commit/1573a0f58ea947db8d777c74c45823b37a51d5a8) · 2026-10-02
-- `adonis-skills` [♻️ refactor(workflow-gate): replace line caps with the field format](https://github.com/Adonis0123/adonis-skills/commit/bfad8cbd69479e1f6c931a5817f6213a91873792) · 2026-10-02
-- `adonis-skills` [📝 docs(agentic-review-handoff): state current rules without incident history](https://github.com/Adonis0123/adonis-skills/commit/21d6db0e4261553ec6c555e6e37e72c1bbd130f0) · 2026-10-02
-- `adonis-skills` [✨ feat(skills): add unattended continuation guidance and update skill versions](https://github.com/Adonis0123/adonis-skills/commit/71eec52997df9448b9e519a61b9c8599427a9135) · 2026-10-02
+- `sideby` [✨ feat(alias): short commands with host arguments and `sideby alias add|rm`](https://github.com/Adonis0123/sideby/commit/4210ce8a39da8e81a7b709a9c16e03174542a2e9) · 2026-10-05
+- `sideby` [🎨 style(panel): give each day of the 7-day bars a fixed slot and line them up](https://github.com/Adonis0123/sideby/commit/3a5442a8c6b4698c17a42276bfe5bd50395cfdd1) · 2026-10-05
+- `sideby` [✨ feat(panel): auto refresh, aligned quota columns and account emails](https://github.com/Adonis0123/sideby/commit/04131e8961013ecac9ebbff3c614b3e11f44353d) · 2026-10-05
+- `sideby` [🐛 fix(plugins): keep the hook timeout referenced so a stuck hook cannot end the process silently](https://github.com/Adonis0123/sideby/commit/54c41dd7e95a43d7b82a0adb5f51a8f08cc1d7d5) · 2026-10-05
+- `sideby` [✨ feat(panel): one quota switch per family and short commands on create](https://github.com/Adonis0123/sideby/commit/f7cea9f8d4d6a4a005268d68f74675a0a4c44197) · 2026-10-05
 <!-- SHIPPED_THIS_WEEK:END -->
 
 ## More Projects
@@ -99,8 +99,8 @@ My latest public commits, refreshed weekly.
 Auto-selected every week from my most recently pushed public repositories.
 
 <!-- RECENT_REPOS:START -->
+- **[sideby](https://github.com/Adonis0123/sideby)** - Run every AI coding account side by side: Claude Code, Codex, Grok Build and pi, with one shared config and a quota panel. (Tech: `ai-coding`, `claude-code`, `cli`, `codex`, `developer-tools` | Last update: 2026-10-05)
 - **[til-garden](https://github.com/Adonis0123/til-garden)** - Today I Learned notes on AI agents, frontend and developer tools (Last update: 2026-07-14)
-- **[adonis-kit](https://github.com/Adonis0123/adonis-kit)** - Production-ready engineering kit for building and scaling developer-focused products (Tech: `react`, `typescript`, `ui-components`, `vercel` | Last update: 2026-02-18)
 <!-- RECENT_REPOS:END -->
 
 ## Latest TIL
