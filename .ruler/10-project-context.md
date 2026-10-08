@@ -31,7 +31,6 @@ applyTo: '**'
 - Also refreshes `<!-- PROFILE_STATS:START/END -->` (published skill count from `SKILL_REPOS` + public commits in the last 30 days via the commit search API) and `<!-- LATEST_TIL:START/END -->` (newest posts by frontmatter `date`, read from `TIL_REPO`'s `docs.json` navigation).
 - Also refreshes `<!-- SHIPPED_THIS_WEEK:START/END -->` (latest public commits from the last 7 days, dropping `chore(sync)`, `chore(profile)`, merges and blocked repos) and `<!-- SKILL_OF_WEEK:START/END -->` (one skill from `SKILL_OF_WEEK_REPO`, rotated by week number since the Unix epoch).
 - If any of these fetches fails, that block keeps its previous content.
-- The animated terminal at the top of `README.md` is a static file, `assets/terminal.svg` (SMIL animation, no scripts).
 
 ### 2. Snake Animation Pipeline
 

@@ -1,10 +1,6 @@
 <img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:1a73e8,100:00c4b4&height=200&section=header&text=Adonis&fontSize=60&fontColor=ffffff&fontAlignY=35&desc=Frontend+engineer+building+skills,+plugins+and+workflows+for+coding+agents&descSize=16&descAlignY=55&descColor=ffffff" alt="Header banner" />
 
 <p align="center">
-  <img width="760" src="./assets/terminal.svg" alt="Animated terminal starting the Claude Code account with the most quota left through sideby, installing adonis-skills, adding the hermes-kit tap and launching pi with adonis-pi" />
-</p>
-
-<p align="center">
   Frontend engineer (React · TypeScript) turned coding-agent toolsmith.<br />
   I package the habits that make agents reliable — review loops, workflow gates, permission gates — into things you can install in one line.
 </p>
