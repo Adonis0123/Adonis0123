@@ -1,7 +1,7 @@
 <img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:1a73e8,100:00c4b4&height=200&section=header&text=Adonis&fontSize=60&fontColor=ffffff&fontAlignY=35&desc=Frontend+engineer+building+skills,+plugins+and+workflows+for+coding+agents&descSize=16&descAlignY=55&descColor=ffffff" alt="Header banner" />
 
 <p align="center">
-  <img width="760" src="./assets/terminal.svg" alt="Animated terminal installing adonis-skills, adding the hermes-kit tap and launching pi with adonis-pi" />
+  <img width="760" src="./assets/terminal.svg" alt="Animated terminal starting the Claude Code account with the most quota left through sideby, installing adonis-skills, adding the hermes-kit tap and launching pi with adonis-pi" />
 </p>
 
 <p align="center">
@@ -11,13 +11,33 @@
 
 <!-- PROFILE_STATS:START -->
 <p align="center">
-  <b>35</b> published skills · runs in Claude Code · Codex · Cursor · Hermes · pi · <b>82</b> public commits in the last 30 days
+  <b>36</b> published skills · runs in Claude Code · Codex · Cursor · Hermes · pi · <b>104</b> public commits in the last 30 days
 </p>
 <!-- PROFILE_STATS:END -->
 
 ## Featured Projects
 
-How the pieces fit together:
+### [sideby](https://github.com/Adonis0123/sideby)
+
+<a href="https://www.npmjs.com/package/sideby"><img src="https://img.shields.io/npm/v/sideby?style=flat-square&color=00c4b4" alt="npm version" /></a> <a href="https://github.com/Adonis0123/sideby/stargazers"><img src="https://img.shields.io/github/stars/Adonis0123/sideby?style=flat-square&color=58A6FF" alt="Stars" /></a> <a href="https://github.com/Adonis0123/sideby/commits"><img src="https://img.shields.io/github/last-commit/Adonis0123/sideby?style=flat-square&label=last%20commit" alt="Last commit" /></a>
+
+Run every AI coding account side by side: Claude Code, Codex, Grok Build and pi. Each account gets its own directory and terminal, all of them share one set of skills, hooks and rules, and one local panel shows every account's 5-hour and 7-day quota. Out of room? `sideby next` starts the account with the most left. No network calls, no token reads.
+
+```bash
+npm i -g sideby && sideby new claude work && sideby ui
+```
+
+<p>
+<a href="https://github.com/Adonis0123/sideby">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Adonis0123/sideby/main/docs/assets/panel-dark.png" />
+    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/Adonis0123/sideby/main/docs/assets/panel.png" />
+    <img width="640" src="https://raw.githubusercontent.com/Adonis0123/sideby/main/docs/assets/panel.png" alt="sideby panel: every account's 5h and 7d quota, 7-day token usage and health in one page" />
+  </picture>
+</a>
+</p>
+
+How my skill, plugin and pi projects fit together:
 
 ```mermaid
 flowchart LR
@@ -75,10 +95,10 @@ curl -fsSL https://raw.githubusercontent.com/Adonis0123/gemini-chrome-autoinstal
 A different skill from [adonis-skills](https://github.com/Adonis0123/adonis-skills) every week.
 
 <!-- SKILL_OF_WEEK:START -->
-**[web-performance-audit](https://github.com/Adonis0123/adonis-skills/tree/HEAD/skills/web-performance-audit)** — Run a read-only, evidence-led runtime performance audit of a real web application, especially authenticated editors, dashboards, media tools, long-lived SPAs…
+**[local-web-surface](https://github.com/Adonis0123/adonis-skills/tree/HEAD/skills/local-web-surface)** — Build or extend a persistent macOS local web surface when the request includes a stable *.localhost URL, an existing loopback daemon/gateway, login startup, or…
 
 ```bash
-npx skills add adonis0123/adonis-skills --skill web-performance-audit
+npx skills add adonis0123/adonis-skills --skill local-web-surface
 ```
 <!-- SKILL_OF_WEEK:END -->
 
@@ -87,11 +107,11 @@ npx skills add adonis0123/adonis-skills --skill web-performance-audit
 My latest public commits, refreshed weekly.
 
 <!-- SHIPPED_THIS_WEEK:START -->
-- `sideby` [✨ feat(alias): short commands with host arguments and `sideby alias add|rm`](https://github.com/Adonis0123/sideby/commit/4210ce8a39da8e81a7b709a9c16e03174542a2e9) · 2026-10-05
-- `sideby` [🎨 style(panel): give each day of the 7-day bars a fixed slot and line them up](https://github.com/Adonis0123/sideby/commit/3a5442a8c6b4698c17a42276bfe5bd50395cfdd1) · 2026-10-05
-- `sideby` [✨ feat(panel): auto refresh, aligned quota columns and account emails](https://github.com/Adonis0123/sideby/commit/04131e8961013ecac9ebbff3c614b3e11f44353d) · 2026-10-05
-- `sideby` [🐛 fix(plugins): keep the hook timeout referenced so a stuck hook cannot end the process silently](https://github.com/Adonis0123/sideby/commit/54c41dd7e95a43d7b82a0adb5f51a8f08cc1d7d5) · 2026-10-05
-- `sideby` [✨ feat(panel): one quota switch per family and short commands on create](https://github.com/Adonis0123/sideby/commit/f7cea9f8d4d6a4a005268d68f74675a0a4c44197) · 2026-10-05
+- `adonis-skills` [✨ feat(file-tidy): add a skill that files Desktop, Downloads and home files into a numbered Root](https://github.com/Adonis0123/adonis-skills/commit/141db64cdf465b6d3277bd6d61eba0ca0ac21b1b) · 2026-10-08
+- `sideby` [📝 docs(badge): note that Grok hides its status line on the welcome screen](https://github.com/Adonis0123/sideby/commit/abc90d5726e0ad90e9a93180961d861b0f116a3c) · 2026-10-08
+- `sideby` [🔖 chore(release): v0.3.0](https://github.com/Adonis0123/sideby/commit/03563471a6ddbe25668d121ff265b13c3960a73b) · 2026-10-08
+- `sideby` [✨ feat(launch): tell the Host which account it is, and an optional title badge](https://github.com/Adonis0123/sideby/commit/078681a626954173f40dbdc6c7f054b50bf6b0dd) · 2026-10-08
+- `sideby` [📝 docs(readme): calmer banner in the Panel's blue](https://github.com/Adonis0123/sideby/commit/1218716b9ee6a08be9fa8dc839903620bac349bb) · 2026-10-08
 <!-- SHIPPED_THIS_WEEK:END -->
 
 ## More Projects
@@ -99,8 +119,8 @@ My latest public commits, refreshed weekly.
 Auto-selected every week from my most recently pushed public repositories.
 
 <!-- RECENT_REPOS:START -->
-- **[sideby](https://github.com/Adonis0123/sideby)** - Run every AI coding account side by side: Claude Code, Codex, Grok Build and pi, with one shared config and a quota panel. (Tech: `ai-coding`, `claude-code`, `cli`, `codex`, `developer-tools` | Last update: 2026-10-05)
 - **[til-garden](https://github.com/Adonis0123/til-garden)** - Today I Learned notes on AI agents, frontend and developer tools (Last update: 2026-07-14)
+- **[adonis-kit](https://github.com/Adonis0123/adonis-kit)** - Production-ready engineering kit for building and scaling developer-focused products (Tech: `react`, `typescript`, `ui-components`, `vercel` | Last update: 2026-02-18)
 <!-- RECENT_REPOS:END -->
 
 ## Latest TIL
@@ -133,7 +153,7 @@ Fresh notes from [TIL Garden](https://adonis-til.mintlify.app/introduction), ref
 
 ### AI Agent Tooling
 
-- Claude Code, Codex, Cursor, Hermes Agent, pi
+- Claude Code, Codex, Cursor, Grok Build, Hermes Agent, pi
 - Agent skills (`SKILL.md`), plugins, MCP servers
 
 ### Languages & Markup

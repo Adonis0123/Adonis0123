@@ -1,24 +1,23 @@
 [
   {
-    "name": "sideby",
-    "repo": "Adonis0123/sideby",
-    "demo": null,
-    "summary": "Run every AI coding account side by side: Claude Code, Codex, Grok Build and pi, with one shared config and a quota panel.",
-    "tech": [
-      "ai-coding",
-      "claude-code",
-      "cli",
-      "codex",
-      "developer-tools"
-    ],
-    "updatedAt": "2026-10-05T06:13:55.000Z"
-  },
-  {
     "name": "til-garden",
     "repo": "Adonis0123/til-garden",
     "demo": null,
     "summary": "Today I Learned notes on AI agents, frontend and developer tools",
     "tech": [],
     "updatedAt": "2026-07-14T09:59:44.000Z"
+  },
+  {
+    "name": "adonis-kit",
+    "repo": "Adonis0123/adonis-kit",
+    "demo": null,
+    "summary": "Production-ready engineering kit for building and scaling developer-focused products",
+    "tech": [
+      "react",
+      "typescript",
+      "ui-components",
+      "vercel"
+    ],
+    "updatedAt": "2026-02-18T03:36:52.000Z"
   }
 ]

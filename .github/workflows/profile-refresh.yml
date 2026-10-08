@@ -27,7 +27,7 @@ jobs:
           PROFILE_USERNAME: Adonis0123
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           RECENT_REPO_COUNT: "2"
-          FIXED_FEATURED_REPOS: Adonis0123/adonis-skills,Adonis0123/hermes-kit,Adonis0123/adonis-pi,Adonis0123/gemini-chrome-autoinstall
+          FIXED_FEATURED_REPOS: Adonis0123/sideby,Adonis0123/adonis-skills,Adonis0123/hermes-kit,Adonis0123/adonis-pi,Adonis0123/gemini-chrome-autoinstall
           FALLBACK_REPOS: ""
           BLOCKED_REPOS: Adonis0123/Adonis0123,Adonis0123/nookmark
         run: node scripts/select-recent-repos.mjs

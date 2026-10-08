@@ -55,6 +55,7 @@ const DAY_MS = 24 * 60 * 60 * 1000;
 const FIXED_FEATURED_REPOS = new Set(
   (process.env.FIXED_FEATURED_REPOS ||
     [
+      "sideby",
       "adonis-skills",
       "hermes-kit",
       "adonis-pi",
