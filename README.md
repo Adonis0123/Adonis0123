@@ -7,7 +7,7 @@
 
 <!-- PROFILE_STATS:START -->
 <p align="center">
-  <b>36</b> published skills · runs in Claude Code · Codex · Cursor · Hermes · pi · <b>104</b> public commits in the last 30 days
+  <b>36</b> published skills · runs in Claude Code · Codex · Cursor · Hermes · pi · <b>118</b> public commits in the last 30 days
 </p>
 <!-- PROFILE_STATS:END -->
 
@@ -103,11 +103,11 @@ npx skills add adonis0123/adonis-skills --skill local-web-surface
 My latest public commits, refreshed weekly.
 
 <!-- SHIPPED_THIS_WEEK:START -->
-- `adonis-skills` [✨ feat(file-tidy): add a skill that files Desktop, Downloads and home files into a numbered Root](https://github.com/Adonis0123/adonis-skills/commit/141db64cdf465b6d3277bd6d61eba0ca0ac21b1b) · 2026-10-08
-- `sideby` [📝 docs(badge): note that Grok hides its status line on the welcome screen](https://github.com/Adonis0123/sideby/commit/abc90d5726e0ad90e9a93180961d861b0f116a3c) · 2026-10-08
-- `sideby` [🔖 chore(release): v0.3.0](https://github.com/Adonis0123/sideby/commit/03563471a6ddbe25668d121ff265b13c3960a73b) · 2026-10-08
-- `sideby` [✨ feat(launch): tell the Host which account it is, and an optional title badge](https://github.com/Adonis0123/sideby/commit/078681a626954173f40dbdc6c7f054b50bf6b0dd) · 2026-10-08
-- `sideby` [📝 docs(readme): calmer banner in the Panel's blue](https://github.com/Adonis0123/sideby/commit/1218716b9ee6a08be9fa8dc839903620bac349bb) · 2026-10-08
+- `adonis-skills` [🐛 fix(file-tidy): harden Linux trash for byte names, other mounts and relative XDG_DATA_HOME](https://github.com/Adonis0123/adonis-skills/commit/ab9ecaa8bbc6ec389d3a7ac8672a8df6cf5cbdef) · 2026-10-12
+- `mcd-cooldown` [Fill first-run config from a store lookup and install the Claude hook. (#3)](https://github.com/Adonis0123/mcd-cooldown/commit/82dbdf3c29b3205b47ee7ef30a89e40d5501de13) · 2026-10-12
+- `adonis-skills` [🔧 chore(web): regenerate skills index for file-tidy 1.3.0](https://github.com/Adonis0123/adonis-skills/commit/3c7638d2316f846e9b2dc2eb9c2ea77f9262becd) · 2026-10-12
+- `adonis-skills` [✨ feat(file-tidy): run the same filing workflow on macOS, Linux and Windows](https://github.com/Adonis0123/adonis-skills/commit/81310cd08e113997a7b3544d5b15e5ba8485fe52) · 2026-10-12
+- `mcd-cooldown` [Fix the 2026-10-11 live MCP mismatches. (#2)](https://github.com/Adonis0123/mcd-cooldown/commit/0c5a5829499a19fa4323708e13fa3128ac70daaf) · 2026-10-11
 <!-- SHIPPED_THIS_WEEK:END -->
 
 ## More Projects
@@ -115,8 +115,8 @@ My latest public commits, refreshed weekly.
 Auto-selected every week from my most recently pushed public repositories.
 
 <!-- RECENT_REPOS:START -->
+- **[mcd-cooldown](https://github.com/Adonis0123/mcd-cooldown)** - 终端里的麦当劳 MCP 安全网关：AI 额度冷却、饭点提醒，只核价，确认后才下单 · M-CODE 2026 (Last update: 2026-10-12)
 - **[til-garden](https://github.com/Adonis0123/til-garden)** - Today I Learned notes on AI agents, frontend and developer tools (Last update: 2026-07-14)
-- **[adonis-kit](https://github.com/Adonis0123/adonis-kit)** - Production-ready engineering kit for building and scaling developer-focused products (Tech: `react`, `typescript`, `ui-components`, `vercel` | Last update: 2026-02-18)
 <!-- RECENT_REPOS:END -->
 
 ## Latest TIL

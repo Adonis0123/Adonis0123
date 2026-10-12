@@ -1,23 +1,18 @@
 [
   {
+    "name": "mcd-cooldown",
+    "repo": "Adonis0123/mcd-cooldown",
+    "demo": null,
+    "summary": "终端里的麦当劳 MCP 安全网关：AI 额度冷却、饭点提醒，只核价，确认后才下单 · M-CODE 2026",
+    "tech": [],
+    "updatedAt": "2026-10-12T02:03:48.000Z"
+  },
+  {
     "name": "til-garden",
     "repo": "Adonis0123/til-garden",
     "demo": null,
     "summary": "Today I Learned notes on AI agents, frontend and developer tools",
     "tech": [],
     "updatedAt": "2026-07-14T09:59:44.000Z"
-  },
-  {
-    "name": "adonis-kit",
-    "repo": "Adonis0123/adonis-kit",
-    "demo": null,
-    "summary": "Production-ready engineering kit for building and scaling developer-focused products",
-    "tech": [
-      "react",
-      "typescript",
-      "ui-components",
-      "vercel"
-    ],
-    "updatedAt": "2026-02-18T03:36:52.000Z"
   }
 ]
