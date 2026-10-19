@@ -191,9 +191,6 @@ Fresh notes from [TIL Garden](https://adonis-til.mintlify.app/introduction), ref
   <a href="https://github.com/Adonis0123">
     <img src="https://img.shields.io/badge/GitHub-Adonis0123-181717?style=for-the-badge&logo=github" alt="GitHub" />
   </a>
-  <a href="mailto:adonis20210809@gmail.com">
-    <img src="https://img.shields.io/badge/Email-adonis20210809@gmail.com-EA4335?style=for-the-badge&logo=gmail&logoColor=white" alt="Email" />
-  </a>
   <a href="https://adonis-til.mintlify.app/introduction">
     <img src="https://img.shields.io/badge/Blog-TIL_Garden-2563EB?style=for-the-badge&logo=mintlify&logoColor=white" alt="TIL Garden blog" />
   </a>
