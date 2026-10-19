@@ -7,7 +7,7 @@
 
 <!-- PROFILE_STATS:START -->
 <p align="center">
-  <b>36</b> published skills · runs in Claude Code · Codex · Cursor · Hermes · pi · <b>118</b> public commits in the last 30 days
+  <b>39</b> published skills · runs in Claude Code · Codex · Cursor · Hermes · pi · <b>302</b> public commits in the last 30 days
 </p>
 <!-- PROFILE_STATS:END -->
 
@@ -91,10 +91,10 @@ curl -fsSL https://raw.githubusercontent.com/Adonis0123/gemini-chrome-autoinstal
 A different skill from [adonis-skills](https://github.com/Adonis0123/adonis-skills) every week.
 
 <!-- SKILL_OF_WEEK:START -->
-**[local-web-surface](https://github.com/Adonis0123/adonis-skills/tree/HEAD/skills/local-web-surface)** — Build or extend a persistent macOS local web surface when the request includes a stable *.localhost URL, an existing loopback daemon/gateway, login startup, or…
+**[branch-creator](https://github.com/Adonis0123/adonis-skills/tree/HEAD/skills/branch-creator)** — Create safe Git feature or hotfix branches with concise names.
 
 ```bash
-npx skills add adonis0123/adonis-skills --skill local-web-surface
+npx skills add adonis0123/adonis-skills --skill branch-creator
 ```
 <!-- SKILL_OF_WEEK:END -->
 
@@ -103,11 +103,11 @@ npx skills add adonis0123/adonis-skills --skill local-web-surface
 My latest public commits, refreshed weekly.
 
 <!-- SHIPPED_THIS_WEEK:START -->
-- `adonis-skills` [🐛 fix(file-tidy): harden Linux trash for byte names, other mounts and relative XDG_DATA_HOME](https://github.com/Adonis0123/adonis-skills/commit/ab9ecaa8bbc6ec389d3a7ac8672a8df6cf5cbdef) · 2026-10-12
-- `mcd-cooldown` [Fill first-run config from a store lookup and install the Claude hook. (#3)](https://github.com/Adonis0123/mcd-cooldown/commit/82dbdf3c29b3205b47ee7ef30a89e40d5501de13) · 2026-10-12
-- `adonis-skills` [🔧 chore(web): regenerate skills index for file-tidy 1.3.0](https://github.com/Adonis0123/adonis-skills/commit/3c7638d2316f846e9b2dc2eb9c2ea77f9262becd) · 2026-10-12
-- `adonis-skills` [✨ feat(file-tidy): run the same filing workflow on macOS, Linux and Windows](https://github.com/Adonis0123/adonis-skills/commit/81310cd08e113997a7b3544d5b15e5ba8485fe52) · 2026-10-12
-- `mcd-cooldown` [Fix the 2026-10-11 live MCP mismatches. (#2)](https://github.com/Adonis0123/mcd-cooldown/commit/0c5a5829499a19fa4323708e13fa3128ac70daaf) · 2026-10-11
+- `sideby` [🔖 chore(release): v0.18.0](https://github.com/Adonis0123/sideby/commit/34e3eede9bfb3048bee532c99def43af72b7c6f4) · 2026-10-19
+- `sideby` [✨ feat(menubar): show quota in the macOS menu bar](https://github.com/Adonis0123/sideby/commit/abd04ffc07fb6b0781e840f00505b6943f518567) · 2026-10-19
+- `sideby` [🐛 fix(desktop): let doctor --force fix Claude Desktop's own mcpServers in an account's app data](https://github.com/Adonis0123/sideby/commit/d8cce9c6161431497ded41df2cd0e0f09e4b7fc7) · 2026-10-19
+- `adonis-skills` [📝 docs(web): sharpen hero, featured, and metadata copy around visitor value](https://github.com/Adonis0123/adonis-skills/commit/a430afa2e447a3fd3f11912390d8b430d0dfc664) · 2026-10-19
+- `sideby` [✨ feat(edit): open an account's own settings file in the default editor](https://github.com/Adonis0123/sideby/commit/8602f93c3d38c24a24e41670890ddf4548599f66) · 2026-10-19
 <!-- SHIPPED_THIS_WEEK:END -->
 
 ## More Projects
@@ -115,7 +115,7 @@ My latest public commits, refreshed weekly.
 Auto-selected every week from my most recently pushed public repositories.
 
 <!-- RECENT_REPOS:START -->
-- **[mcd-cooldown](https://github.com/Adonis0123/mcd-cooldown)** - 终端里的麦当劳 MCP 安全网关：AI 额度冷却、饭点提醒，只核价，确认后才下单 · M-CODE 2026 (Last update: 2026-10-12)
+- **[mcd-cooldown](https://github.com/Adonis0123/mcd-cooldown)** - 终端里的麦当劳 MCP 安全网关：AI 额度冷却、饭点提醒，只核价，确认后才下单 · M-CODE 2026 (Last update: 2026-10-15)
 - **[til-garden](https://github.com/Adonis0123/til-garden)** - Today I Learned notes on AI agents, frontend and developer tools (Last update: 2026-07-14)
 <!-- RECENT_REPOS:END -->
 
