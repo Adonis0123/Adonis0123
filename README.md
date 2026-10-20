@@ -1,4 +1,4 @@
-<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:1F6F6B,100:2BA5A0&height=200&section=header&text=Adonis&fontSize=60&fontColor=ffffff&fontAlignY=35&desc=Frontend+engineer+building+skills,+plugins+and+workflows+for+coding+agents&descSize=16&descAlignY=55&descColor=ffffff" alt="Header banner" />
+<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:1a73e8,100:00c4b4&height=200&section=header&text=Adonis&fontSize=60&fontColor=ffffff&fontAlignY=35&desc=Frontend+engineer+building+skills,+plugins+and+workflows+for+coding+agents&descSize=16&descAlignY=55&descColor=ffffff" alt="Header banner" />
 
 <p align="center">
   Frontend engineer (React · TypeScript) turned coding-agent toolsmith.<br />
@@ -15,7 +15,7 @@
 
 ### [sideby](https://github.com/Adonis0123/sideby)
 
-<a href="https://www.npmjs.com/package/sideby"><img src="https://img.shields.io/npm/v/sideby?style=flat-square&color=1F6F6B" alt="npm version" /></a> <a href="https://github.com/Adonis0123/sideby/stargazers"><img src="https://img.shields.io/github/stars/Adonis0123/sideby?style=flat-square&color=1F6F6B" alt="Stars" /></a> <a href="https://github.com/Adonis0123/sideby/commits"><img src="https://img.shields.io/github/last-commit/Adonis0123/sideby?style=flat-square&label=last%20commit" alt="Last commit" /></a>
+<a href="https://www.npmjs.com/package/sideby"><img src="https://img.shields.io/npm/v/sideby?style=flat-square&color=00c4b4" alt="npm version" /></a> <a href="https://github.com/Adonis0123/sideby/stargazers"><img src="https://img.shields.io/github/stars/Adonis0123/sideby?style=flat-square&color=58A6FF" alt="Stars" /></a> <a href="https://github.com/Adonis0123/sideby/commits"><img src="https://img.shields.io/github/last-commit/Adonis0123/sideby?style=flat-square&label=last%20commit" alt="Last commit" /></a>
 
 Run every AI coding account side by side: Claude Code, Codex, Grok Build and pi. Each account gets its own directory and terminal, all of them share one set of skills, hooks and rules, and one local panel shows every account's 5-hour and 7-day quota. Out of room? `sideby next` starts the account with the most left. No network calls, no token reads.
 
@@ -47,7 +47,7 @@ flowchart LR
 
 ### [adonis-skills](https://github.com/Adonis0123/adonis-skills)
 
-<a href="https://github.com/Adonis0123/adonis-skills/stargazers"><img src="https://img.shields.io/github/stars/Adonis0123/adonis-skills?style=flat-square&color=1F6F6B" alt="Stars" /></a> <a href="https://github.com/Adonis0123/adonis-skills/commits"><img src="https://img.shields.io/github/last-commit/Adonis0123/adonis-skills?style=flat-square&label=last%20commit" alt="Last commit" /></a>
+<a href="https://github.com/Adonis0123/adonis-skills/stargazers"><img src="https://img.shields.io/github/stars/Adonis0123/adonis-skills?style=flat-square&color=58A6FF" alt="Stars" /></a> <a href="https://github.com/Adonis0123/adonis-skills/commits"><img src="https://img.shields.io/github/last-commit/Adonis0123/adonis-skills?style=flat-square&label=last%20commit" alt="Last commit" /></a>
 
 Agent-agnostic skills for coding agents: review loops, workflow gates, MCP setup, Git delivery and local environment audits. Works in Claude Code, Codex, Cursor, Hermes or any agent that reads `SKILL.md`. · [Live site](https://adonis-skills.vercel.app/)
 
@@ -57,7 +57,7 @@ npx skills add adonis0123/adonis-skills --list
 
 ### [hermes-kit](https://github.com/Adonis0123/hermes-kit)
 
-<a href="https://github.com/Adonis0123/hermes-kit/stargazers"><img src="https://img.shields.io/github/stars/Adonis0123/hermes-kit?style=flat-square&color=1F6F6B" alt="Stars" /></a> <a href="https://github.com/Adonis0123/hermes-kit/commits"><img src="https://img.shields.io/github/last-commit/Adonis0123/hermes-kit?style=flat-square&label=last%20commit" alt="Last commit" /></a>
+<a href="https://github.com/Adonis0123/hermes-kit/stargazers"><img src="https://img.shields.io/github/stars/Adonis0123/hermes-kit?style=flat-square&color=58A6FF" alt="Stars" /></a> <a href="https://github.com/Adonis0123/hermes-kit/commits"><img src="https://img.shields.io/github/last-commit/Adonis0123/hermes-kit?style=flat-square&label=last%20commit" alt="Last commit" /></a>
 
 Plugins, skills and field notes for running [Hermes Agent](https://github.com/NousResearch/hermes-agent) day to day, plus docs for a patched Hermes fork. The skills also install into Claude Code and Codex.
 
@@ -67,7 +67,7 @@ hermes skills tap add Adonis0123/hermes-kit
 
 ### [adonis-pi](https://github.com/Adonis0123/adonis-pi)
 
-<a href="https://github.com/Adonis0123/adonis-pi/stargazers"><img src="https://img.shields.io/github/stars/Adonis0123/adonis-pi?style=flat-square&color=1F6F6B" alt="Stars" /></a> <a href="https://github.com/Adonis0123/adonis-pi/commits"><img src="https://img.shields.io/github/last-commit/Adonis0123/adonis-pi?style=flat-square&label=last%20commit" alt="Last commit" /></a>
+<a href="https://github.com/Adonis0123/adonis-pi/stargazers"><img src="https://img.shields.io/github/stars/Adonis0123/adonis-pi?style=flat-square&color=58A6FF" alt="Stars" /></a> <a href="https://github.com/Adonis0123/adonis-pi/commits"><img src="https://img.shields.io/github/last-commit/Adonis0123/adonis-pi?style=flat-square&label=last%20commit" alt="Last commit" /></a>
 
 A Pi Package that brings my Claude Code habits to [pi](https://github.com/earendil-works/pi) without forking it: a permission gate, attention notifications, a Claude Code–compatible `AskUserQuestion` tool and the `pin` multi-account launcher.
 
@@ -78,7 +78,7 @@ pin setup 1
 
 ### [gemini-chrome-autoinstall](https://github.com/Adonis0123/gemini-chrome-autoinstall)
 
-<a href="https://github.com/Adonis0123/gemini-chrome-autoinstall/stargazers"><img src="https://img.shields.io/github/stars/Adonis0123/gemini-chrome-autoinstall?style=flat-square&color=1F6F6B" alt="Stars" /></a> <a href="https://github.com/Adonis0123/gemini-chrome-autoinstall/commits"><img src="https://img.shields.io/github/last-commit/Adonis0123/gemini-chrome-autoinstall?style=flat-square&label=last%20commit" alt="Last commit" /></a> <a href="https://github.com/Adonis0123/gemini-chrome-autoinstall/releases"><img src="https://img.shields.io/github/v/release/Adonis0123/gemini-chrome-autoinstall?style=flat-square&label=release&color=1F6F6B" alt="Latest release" /></a>
+<a href="https://github.com/Adonis0123/gemini-chrome-autoinstall/stargazers"><img src="https://img.shields.io/github/stars/Adonis0123/gemini-chrome-autoinstall?style=flat-square&color=58A6FF" alt="Stars" /></a> <a href="https://github.com/Adonis0123/gemini-chrome-autoinstall/commits"><img src="https://img.shields.io/github/last-commit/Adonis0123/gemini-chrome-autoinstall?style=flat-square&label=last%20commit" alt="Last commit" /></a> <a href="https://github.com/Adonis0123/gemini-chrome-autoinstall/releases"><img src="https://img.shields.io/github/v/release/Adonis0123/gemini-chrome-autoinstall?style=flat-square&label=release&color=00c4b4" alt="Latest release" /></a>
 
 A self-healing wrapper that keeps [Gemini-in-Chrome](https://github.com/appsail/Gemini-in-Chrome) working after Chrome updates: it watches for version changes and repairs `Local State` only when it is safe to write. macOS and Windows.
 
@@ -178,10 +178,10 @@ Fresh notes from [TIL Garden](https://adonis-til.mintlify.app/introduction), ref
 
 <p align="center">
   <a href="https://github.com/Adonis0123">
-    <img height="170" src="https://adonis0123-stats.vercel.app/api?username=Adonis0123&show_icons=true&hide_border=true&rank_icon=github&theme=transparent&title_color=2BA5A0&icon_color=2BA5A0" alt="GitHub stats for Adonis0123" />
+    <img height="170" src="https://adonis0123-stats.vercel.app/api?username=Adonis0123&show_icons=true&hide_border=true&rank_icon=github&theme=transparent&icon_color=58A6FF" alt="GitHub stats for Adonis0123" />
   </a>
   <a href="https://github.com/Adonis0123">
-    <img height="170" src="https://adonis0123-stats.vercel.app/api/top-langs/?username=Adonis0123&layout=compact&hide_border=true&theme=transparent&title_color=2BA5A0&langs_count=8" alt="Top languages used by Adonis0123" />
+    <img height="170" src="https://adonis0123-stats.vercel.app/api/top-langs/?username=Adonis0123&layout=compact&hide_border=true&theme=transparent&langs_count=8" alt="Top languages used by Adonis0123" />
   </a>
 </p>
 
@@ -195,7 +195,7 @@ Fresh notes from [TIL Garden](https://adonis-til.mintlify.app/introduction), ref
     <img src="https://img.shields.io/badge/Email-adonis20210809@gmail.com-EA4335?style=for-the-badge&logo=gmail&logoColor=white" alt="Email" />
   </a>
   <a href="https://adonis-til.mintlify.app/introduction">
-    <img src="https://img.shields.io/badge/Blog-TIL_Garden-1F6F6B?style=for-the-badge&logo=mintlify&logoColor=white" alt="TIL Garden blog" />
+    <img src="https://img.shields.io/badge/Blog-TIL_Garden-2563EB?style=for-the-badge&logo=mintlify&logoColor=white" alt="TIL Garden blog" />
   </a>
 </p>
 
@@ -209,4 +209,4 @@ Fresh notes from [TIL Garden](https://adonis-til.mintlify.app/introduction), ref
   <sub>This profile is refreshed weekly by <a href="https://github.com/Adonis0123/Adonis0123/blob/main/.github/workflows/profile-refresh.yml">GitHub Actions</a> — and edited by coding agents.</sub>
 </p>
 
-<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:1F6F6B,100:2BA5A0&height=120&section=footer" alt="Footer wave" />
+<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:1a73e8,100:00c4b4&height=120&section=footer" alt="Footer wave" />
