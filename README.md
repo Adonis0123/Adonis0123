@@ -7,7 +7,7 @@
 
 <!-- PROFILE_STATS:START -->
 <p align="center">
-  <b>39</b> published skills · runs in Claude Code · Codex · Cursor · Hermes · pi · <b>302</b> public commits in the last 30 days
+  <b>42</b> published skills · runs in Claude Code · Codex · Cursor · Hermes · pi · <b>351</b> public commits in the last 30 days
 </p>
 <!-- PROFILE_STATS:END -->
 
@@ -91,10 +91,10 @@ curl -fsSL https://raw.githubusercontent.com/Adonis0123/gemini-chrome-autoinstal
 A different skill from [adonis-skills](https://github.com/Adonis0123/adonis-skills) every week.
 
 <!-- SKILL_OF_WEEK:START -->
-**[branch-creator](https://github.com/Adonis0123/adonis-skills/tree/HEAD/skills/branch-creator)** — Create safe Git feature or hotfix branches with concise names.
+**[installed-app-feature-inventory](https://github.com/Adonis0123/adonis-skills/tree/HEAD/skills/installed-app-feature-inventory)** — Use when listing a Mac app's real features from the install.
 
 ```bash
-npx skills add adonis0123/adonis-skills --skill branch-creator
+npx skills add adonis0123/adonis-skills --skill installed-app-feature-inventory
 ```
 <!-- SKILL_OF_WEEK:END -->
 
@@ -103,11 +103,11 @@ npx skills add adonis0123/adonis-skills --skill branch-creator
 My latest public commits, refreshed weekly.
 
 <!-- SHIPPED_THIS_WEEK:START -->
-- `sideby` [🔖 chore(release): v0.18.0](https://github.com/Adonis0123/sideby/commit/34e3eede9bfb3048bee532c99def43af72b7c6f4) · 2026-10-19
-- `sideby` [✨ feat(menubar): show quota in the macOS menu bar](https://github.com/Adonis0123/sideby/commit/abd04ffc07fb6b0781e840f00505b6943f518567) · 2026-10-19
-- `sideby` [🐛 fix(desktop): let doctor --force fix Claude Desktop's own mcpServers in an account's app data](https://github.com/Adonis0123/sideby/commit/d8cce9c6161431497ded41df2cd0e0f09e4b7fc7) · 2026-10-19
-- `adonis-skills` [📝 docs(web): sharpen hero, featured, and metadata copy around visitor value](https://github.com/Adonis0123/adonis-skills/commit/a430afa2e447a3fd3f11912390d8b430d0dfc664) · 2026-10-19
-- `sideby` [✨ feat(edit): open an account's own settings file in the default editor](https://github.com/Adonis0123/sideby/commit/8602f93c3d38c24a24e41670890ddf4548599f66) · 2026-10-19
+- `adonis-skills` [🎨 style(web): sync brand tokens with button state colors and new contrast](https://github.com/Adonis0123/adonis-skills/commit/5fa7a777adc8aff4c1502037afa0869a38761c00) · 2026-10-26
+- `adonis-skills` [✅ test(agent-dispatch): measure sideby cases with a stand-in and add a trigger suite (1.10.1)](https://github.com/Adonis0123/adonis-skills/commit/e1d5d21c0de71a20aa9bea1e2c2d143eabf85fda) · 2026-10-26
+- `adonis-skills` [✨ feat(agent-dispatch): enforce run limits in the board and add re-runnable evals (1.10.0)](https://github.com/Adonis0123/adonis-skills/commit/aa6f70c1837d1edbf3cf0af0abe62a5c92dd67a7) · 2026-10-26
+- `adonis-skills` [🐛 fix(scripts): enforce the 1024-character, tag-free skill description and fit figma-mcp in it](https://github.com/Adonis0123/adonis-skills/commit/40087abbbbbbd331ff2bd43e63a75bdc791b8d97) · 2026-10-25
+- `adonis-skills` [🐛 fix(agent-dispatch): fit the description in the 1024-character skill limit and add a run-board contents list](https://github.com/Adonis0123/adonis-skills/commit/8fa870e3c1a4c5557bd7764a1d74a4f799158d07) · 2026-10-25
 <!-- SHIPPED_THIS_WEEK:END -->
 
 ## More Projects
@@ -115,7 +115,7 @@ My latest public commits, refreshed weekly.
 Auto-selected every week from my most recently pushed public repositories.
 
 <!-- RECENT_REPOS:START -->
-- **[mcd-cooldown](https://github.com/Adonis0123/mcd-cooldown)** - 终端里的麦当劳 MCP 安全网关：AI 额度冷却、饭点提醒，只核价，确认后才下单 · M-CODE 2026 (Last update: 2026-10-15)
+- **[mcd-cooldown](https://github.com/Adonis0123/mcd-cooldown)** - 终端里的麦当劳 MCP 安全网关：AI 额度冷却、饭点提醒，只核价，确认后才下单 · M-CODE 2026 (Last update: 2026-10-24)
 - **[til-garden](https://github.com/Adonis0123/til-garden)** - Today I Learned notes on AI agents, frontend and developer tools (Last update: 2026-07-14)
 <!-- RECENT_REPOS:END -->
 
