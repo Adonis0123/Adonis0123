@@ -7,7 +7,7 @@
 
 <!-- PROFILE_STATS:START -->
 <p align="center">
-  <b>42</b> published skills · runs in Claude Code · Codex · Cursor · Hermes · pi · <b>351</b> public commits in the last 30 days
+  <b>43</b> published skills · runs in Claude Code · Codex · Cursor · Hermes · pi · <b>449</b> public commits in the last 30 days
 </p>
 <!-- PROFILE_STATS:END -->
 
@@ -91,10 +91,10 @@ curl -fsSL https://raw.githubusercontent.com/Adonis0123/gemini-chrome-autoinstal
 A different skill from [adonis-skills](https://github.com/Adonis0123/adonis-skills) every week.
 
 <!-- SKILL_OF_WEEK:START -->
-**[installed-app-feature-inventory](https://github.com/Adonis0123/adonis-skills/tree/HEAD/skills/installed-app-feature-inventory)** — Use when listing a Mac app's real features from the install.
+**[uxc-facade](https://github.com/Adonis0123/adonis-skills/tree/HEAD/skills/uxc-facade)** — This skill should be used when the user invokes /uxc-facade or asks to package, harden, or reuse an MCP, OpenAPI, GraphQL, gRPC, or JSON-RPC interface through…
 
 ```bash
-npx skills add adonis0123/adonis-skills --skill installed-app-feature-inventory
+npx skills add adonis0123/adonis-skills --skill uxc-facade
 ```
 <!-- SKILL_OF_WEEK:END -->
 
@@ -103,11 +103,11 @@ npx skills add adonis0123/adonis-skills --skill installed-app-feature-inventory
 My latest public commits, refreshed weekly.
 
 <!-- SHIPPED_THIS_WEEK:START -->
-- `adonis-skills` [🎨 style(web): sync brand tokens with button state colors and new contrast](https://github.com/Adonis0123/adonis-skills/commit/5fa7a777adc8aff4c1502037afa0869a38761c00) · 2026-10-26
-- `adonis-skills` [✅ test(agent-dispatch): measure sideby cases with a stand-in and add a trigger suite (1.10.1)](https://github.com/Adonis0123/adonis-skills/commit/e1d5d21c0de71a20aa9bea1e2c2d143eabf85fda) · 2026-10-26
-- `adonis-skills` [✨ feat(agent-dispatch): enforce run limits in the board and add re-runnable evals (1.10.0)](https://github.com/Adonis0123/adonis-skills/commit/aa6f70c1837d1edbf3cf0af0abe62a5c92dd67a7) · 2026-10-26
-- `adonis-skills` [🐛 fix(scripts): enforce the 1024-character, tag-free skill description and fit figma-mcp in it](https://github.com/Adonis0123/adonis-skills/commit/40087abbbbbbd331ff2bd43e63a75bdc791b8d97) · 2026-10-25
-- `adonis-skills` [🐛 fix(agent-dispatch): fit the description in the 1024-character skill limit and add a run-board contents list](https://github.com/Adonis0123/adonis-skills/commit/8fa870e3c1a4c5557bd7764a1d74a4f799158d07) · 2026-10-25
+- `sideby` [🔖 chore(release): v0.35.2](https://github.com/Adonis0123/sideby/commit/31048c5aa5869750669ab99be7f000d54d48046e) · 2026-11-02
+- `sideby` [✨ feat(panel): refresh at once when the Portal around it says so](https://github.com/Adonis0123/sideby/commit/bcacc62a0495779aa522e239cdf062a36e48eb11) · 2026-11-02
+- `adonis-skills` [✨ feat(agent-practice-audit): export metrics.json per run for trend tracking](https://github.com/Adonis0123/adonis-skills/commit/8861341e4f4d0c927c7a509b95827592fc72f3d6) · 2026-11-02
+- `adonis-skills` [✨ feat(agent-dispatch): treat a busy account as not full and start extra sessions without asking (1.12.0)](https://github.com/Adonis0123/adonis-skills/commit/66d200affc1be651c95eec7347c134cf97fdb8b7) · 2026-11-02
+- `adonis-skills` [✨ feat(agent-practice-audit): bundle the Nika illustration, wordmark and teal theme as the default report look](https://github.com/Adonis0123/adonis-skills/commit/ae5bb2f37b45010c078304013e27b769a75f48ae) · 2026-11-02
 <!-- SHIPPED_THIS_WEEK:END -->
 
 ## More Projects
@@ -115,8 +115,8 @@ My latest public commits, refreshed weekly.
 Auto-selected every week from my most recently pushed public repositories.
 
 <!-- RECENT_REPOS:START -->
+- **[ai-code-video-prompts](https://github.com/Adonis0123/ai-code-video-prompts)** - 用一段提示词让 AI 写代码做视频：30 秒剪辑短片 1:1 复刻 + WorkBuddy 五步教程 (Last update: 2026-10-29)
 - **[mcd-cooldown](https://github.com/Adonis0123/mcd-cooldown)** - 终端里的麦当劳 MCP 安全网关：AI 额度冷却、饭点提醒，只核价，确认后才下单 · M-CODE 2026 (Last update: 2026-10-24)
-- **[til-garden](https://github.com/Adonis0123/til-garden)** - Today I Learned notes on AI agents, frontend and developer tools (Last update: 2026-07-14)
 <!-- RECENT_REPOS:END -->
 
 ## Latest TIL
