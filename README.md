@@ -7,7 +7,7 @@
 
 <!-- PROFILE_STATS:START -->
 <p align="center">
-  <b>43</b> published skills · runs in Claude Code · Codex · Cursor · Hermes · pi · <b>449</b> public commits in the last 30 days
+  <b>43</b> published skills · runs in Claude Code · Codex · Cursor · Hermes · pi · <b>420</b> public commits in the last 30 days
 </p>
 <!-- PROFILE_STATS:END -->
 
@@ -91,10 +91,10 @@ curl -fsSL https://raw.githubusercontent.com/Adonis0123/gemini-chrome-autoinstal
 A different skill from [adonis-skills](https://github.com/Adonis0123/adonis-skills) every week.
 
 <!-- SKILL_OF_WEEK:START -->
-**[uxc-facade](https://github.com/Adonis0123/adonis-skills/tree/HEAD/skills/uxc-facade)** — This skill should be used when the user invokes /uxc-facade or asks to package, harden, or reuse an MCP, OpenAPI, GraphQL, gRPC, or JSON-RPC interface through…
+**[web-performance-audit](https://github.com/Adonis0123/adonis-skills/tree/HEAD/skills/web-performance-audit)** — Run a read-only, evidence-led runtime performance audit of a real web application, especially authenticated editors, dashboards, media tools, long-lived SPAs…
 
 ```bash
-npx skills add adonis0123/adonis-skills --skill uxc-facade
+npx skills add adonis0123/adonis-skills --skill web-performance-audit
 ```
 <!-- SKILL_OF_WEEK:END -->
 
@@ -103,11 +103,11 @@ npx skills add adonis0123/adonis-skills --skill uxc-facade
 My latest public commits, refreshed weekly.
 
 <!-- SHIPPED_THIS_WEEK:START -->
-- `sideby` [🔖 chore(release): v0.35.2](https://github.com/Adonis0123/sideby/commit/31048c5aa5869750669ab99be7f000d54d48046e) · 2026-11-02
-- `sideby` [✨ feat(panel): refresh at once when the Portal around it says so](https://github.com/Adonis0123/sideby/commit/bcacc62a0495779aa522e239cdf062a36e48eb11) · 2026-11-02
-- `adonis-skills` [✨ feat(agent-practice-audit): export metrics.json per run for trend tracking](https://github.com/Adonis0123/adonis-skills/commit/8861341e4f4d0c927c7a509b95827592fc72f3d6) · 2026-11-02
-- `adonis-skills` [✨ feat(agent-dispatch): treat a busy account as not full and start extra sessions without asking (1.12.0)](https://github.com/Adonis0123/adonis-skills/commit/66d200affc1be651c95eec7347c134cf97fdb8b7) · 2026-11-02
-- `adonis-skills` [✨ feat(agent-practice-audit): bundle the Nika illustration, wordmark and teal theme as the default report look](https://github.com/Adonis0123/adonis-skills/commit/ae5bb2f37b45010c078304013e27b769a75f48ae) · 2026-11-02
+- `sideby` [🔖 chore(release): v0.35.7](https://github.com/Adonis0123/sideby/commit/8d85e672761565223743279de3ef18f862cc09c4) · 2026-11-09
+- `sideby` [✨ feat(login): remind when a Claude Code sign-in has expired](https://github.com/Adonis0123/sideby/commit/9e4aed5d63d199ecf614242d42cbf37cbd26b400) · 2026-11-09
+- `adonis-skills` [🔒 chore(privacy): drop the self-allow rule by spelling the Git host as a char class](https://github.com/Adonis0123/adonis-skills/commit/0c0984951222b8191e994e57814ca65b1cd32403) · 2026-11-07
+- `adonis-skills` [🔒 chore(privacy): drop inline gitleaks comments from ardot commands and spell the Git host in allow rules](https://github.com/Adonis0123/adonis-skills/commit/1dda8db3ea70589e32ad55c282a1f791137a6687) · 2026-11-07
+- `adonis-skills` [🔒 chore(privacy): anchor privacy allow rules to exact lines and restore commit-push CNB boundary](https://github.com/Adonis0123/adonis-skills/commit/d25954335826a41ba71bd8b0570231a69718575a) · 2026-11-07
 <!-- SHIPPED_THIS_WEEK:END -->
 
 ## More Projects
