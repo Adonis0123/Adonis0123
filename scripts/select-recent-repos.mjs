@@ -56,6 +56,7 @@ const FIXED_FEATURED_REPOS = new Set(
   (process.env.FIXED_FEATURED_REPOS ||
     [
       "sideby",
+      "agent-env",
       "adonis-skills",
       "hermes-kit",
       "adonis-pi",

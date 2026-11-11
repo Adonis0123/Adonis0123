@@ -30,6 +30,7 @@ describe("isQualityCandidate", () => {
   it("excludes every default featured repo", () => {
     for (const name of [
       "sideby",
+      "agent-env",
       "adonis-skills",
       "hermes-kit",
       "adonis-pi",

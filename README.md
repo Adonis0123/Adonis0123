@@ -17,10 +17,10 @@
 
 <a href="https://www.npmjs.com/package/sideby"><img src="https://img.shields.io/npm/v/sideby?style=flat-square&color=00c4b4" alt="npm version" /></a> <a href="https://github.com/Adonis0123/sideby/stargazers"><img src="https://img.shields.io/github/stars/Adonis0123/sideby?style=flat-square&color=58A6FF" alt="Stars" /></a> <a href="https://github.com/Adonis0123/sideby/commits"><img src="https://img.shields.io/github/last-commit/Adonis0123/sideby?style=flat-square&label=last%20commit" alt="Last commit" /></a>
 
-Run every AI coding account side by side: Claude Code, Codex, Grok Build and pi. Each account gets its own directory and terminal, all of them share one set of skills, hooks and rules, and one local panel shows every account's 5-hour and 7-day quota. Out of room? `sideby next` starts the account with the most left. No network calls, no token reads.
+Run work, personal and API-key accounts at the same time, without their configs drifting apart: Claude Code, Codex, Grok Build and pi, plus quota for Antigravity. Each account gets its own directory and terminal, while skills, hooks and settings stay linked to your main account; `sideby doctor --fix` repairs drift. One local panel and a macOS menu bar show every account's 5-hour and weekly quota, and `sideby next` starts the account with the most left. It never reads, prints or sends a credential value.
 
 ```bash
-npm i -g sideby && sideby new claude work && sideby ui
+npm i -g sideby && sideby new claude work && sideby ui --background
 ```
 
 <p>
@@ -33,15 +33,29 @@ npm i -g sideby && sideby new claude work && sideby ui
 </a>
 </p>
 
+### [agent-env](https://github.com/Adonis0123/agent-env)
+
+<a href="https://github.com/Adonis0123/agent-env/stargazers"><img src="https://img.shields.io/github/stars/Adonis0123/agent-env?style=flat-square&color=58A6FF" alt="Stars" /></a> <a href="https://github.com/Adonis0123/agent-env/commits"><img src="https://img.shields.io/github/last-commit/Adonis0123/agent-env?style=flat-square&label=last%20commit" alt="Last commit" /></a>
+
+One manifest for the rules and skills of every AI agent I run: Claude Code, Codex, Grok, pi, Cursor, Hermes and cloud chat bots. It ships them as plugins with a visibility (public, personal, company or local), scans public and personal ones for home paths, emails and secrets before they are written, and `bin/agent-env doctor` checks every machine against the manifest. It also builds [agent-plugin-public](https://github.com/Adonis0123/agent-plugin-public), the plugin of shared rules and general skills you can install directly.
+
+```bash
+git clone https://github.com/Adonis0123/agent-env.git && cd agent-env
+bin/agent-env check --manifest examples/demo/manifest/habits.toml
+```
+
 How my skill, plugin and pi projects fit together:
 
 ```mermaid
 flowchart LR
-  SRC["My private skill & plugin source"] --> GATE{"Allowlist export<br/>+ privacy scan"}
+  SRC["My private rules, skills<br/>& plugin source"] --> GATE{"Allowlist export<br/>+ privacy scan"}
   GATE --> SK["adonis-skills"]
   GATE --> HK["hermes-kit"]
-  SK --> HOSTS["Claude Code · Codex<br/>Cursor · Hermes"]
+  SRC --> AE{"agent-env<br/>manifest + privacy scan"}
+  AE --> PUB["agent-plugin-public"]
+  SK --> HOSTS["Claude Code · Codex<br/>Grok Build · Cursor<br/>Hermes"]
   HK --> HOSTS
+  PUB --> HOSTS
   PI["adonis-pi"] --> P["pi"]
 ```
 
@@ -132,7 +146,7 @@ Fresh notes from [TIL Garden](https://adonis-til.mintlify.app/introduction), ref
 ## About Me
 
 - Frontend engineer based in Shenzhen, China, working mostly in React and TypeScript.
-- These days I spend most of my time building tooling for coding agents: Claude Code, Codex, Cursor, Hermes and pi.
+- These days I spend most of my time building tooling for coding agents: Claude Code, Codex, Grok Build, Cursor, Hermes and pi.
 - Everything I publish is exported through an allowlist and a privacy scan before it leaves my machine.
 - I write down what I learn at [TIL Garden](https://adonis-til.mintlify.app/introduction).
 
