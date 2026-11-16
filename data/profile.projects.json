@@ -8,11 +8,11 @@
     "updatedAt": "2026-10-29T16:53:31.000Z"
   },
   {
-    "name": "mcd-cooldown",
-    "repo": "Adonis0123/mcd-cooldown",
+    "name": "til-garden",
+    "repo": "Adonis0123/til-garden",
     "demo": null,
-    "summary": "终端里的麦当劳 MCP 安全网关：AI 额度冷却、饭点提醒，只核价，确认后才下单 · M-CODE 2026",
+    "summary": "Today I Learned notes on AI agents, frontend and developer tools",
     "tech": [],
-    "updatedAt": "2026-10-24T04:37:51.000Z"
+    "updatedAt": "2026-07-14T09:59:44.000Z"
   }
 ]
