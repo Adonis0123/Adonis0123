@@ -3,17 +3,16 @@ import { describe, it } from "node:test";
 
 import {
   buildCommitSearchQuery,
-  collectDocsPages,
   countPublishedSkills,
   isQualityCandidate,
   parseFrontmatter,
   pickWeeklyItem,
-  renderLatestTilMarkdown,
+  renderLatestReleasesMarkdown,
   renderShippedMarkdown,
   renderSkillOfWeekMarkdown,
   renderStatsMarkdown,
   replaceMarkerBlock,
-  selectLatestTil,
+  selectLatestReleases,
   selectShippedCommits,
   summarizeDescription,
 } from "./select-recent-repos.mjs";
@@ -102,30 +101,6 @@ describe("renderStatsMarkdown", () => {
   });
 });
 
-describe("collectDocsPages", () => {
-  it("flattens tabs, groups and pages in order", () => {
-    const navigation = {
-      tabs: [
-        {
-          tab: "Articles",
-          pages: [
-            "introduction",
-            { group: "AI", pages: ["ai/a", "ai/b"] },
-            { group: "Tools", pages: ["tools/c"] },
-          ],
-        },
-      ],
-    };
-
-    assert.deepEqual(collectDocsPages(navigation), [
-      "introduction",
-      "ai/a",
-      "ai/b",
-      "tools/c",
-    ]);
-  });
-});
-
 describe("parseFrontmatter", () => {
   it("reads quoted and plain scalars and skips folded values", () => {
     const text = [
@@ -151,29 +126,36 @@ describe("parseFrontmatter", () => {
   });
 });
 
-describe("selectLatestTil", () => {
-  it("sorts by date descending, drops undated posts and limits the count", () => {
-    const posts = [
-      { title: "old", url: "u1", date: "2026-01-01" },
-      { title: "undated", url: "u2", date: "soon" },
-      { title: "new", url: "u3", date: "2026-07-14" },
-      { title: "mid", url: "u4", date: "2026-04-22" },
+describe("selectLatestReleases", () => {
+  it("sorts by publish date descending and limits the count", () => {
+    const releases = [
+      { repo: "Adonis0123/agent-env", tag: "v0.1.0", url: "u1", date: "2026-11-10T11:51:55Z" },
+      { repo: "Adonis0123/sideby", tag: "v0.42.1", url: "u2", date: "2026-11-21T04:29:44Z" },
+      { repo: "Adonis0123/gemini-chrome-autoinstall", tag: "v0.6.8", url: "u3", date: "2026-11-13T17:23:15Z" },
     ];
 
     assert.deepEqual(
-      selectLatestTil(posts, 2).map((post) => post.title),
-      ["new", "mid"],
+      selectLatestReleases(releases, 2).map((release) => release.tag),
+      ["v0.42.1", "v0.6.8"],
     );
   });
 });
 
-describe("renderLatestTilMarkdown", () => {
-  it("renders linked bullets and escapes brackets in titles", () => {
-    const markdown = renderLatestTilMarkdown([
-      { title: "Use [skills]", url: "https://til.example/ai/a", date: "2026-04-22" },
+describe("renderLatestReleasesMarkdown", () => {
+  it("renders repo link, release link and date", () => {
+    const markdown = renderLatestReleasesMarkdown([
+      {
+        repo: "Adonis0123/sideby",
+        tag: "v0.42.1",
+        url: "https://github.com/Adonis0123/sideby/releases/tag/v0.42.1",
+        date: "2026-11-21T04:29:44Z",
+      },
     ]);
 
-    assert.equal(markdown, "- [Use \\[skills\\]](https://til.example/ai/a) · 2026-04-22");
+    assert.equal(
+      markdown,
+      "- **[sideby](https://github.com/Adonis0123/sideby)** [v0.42.1](https://github.com/Adonis0123/sideby/releases/tag/v0.42.1) · 2026-11-21",
+    );
   });
 });
 

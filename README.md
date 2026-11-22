@@ -133,22 +133,21 @@ Auto-selected every week from my most recently pushed public repositories.
 - **[til-garden](https://github.com/Adonis0123/til-garden)** - Today I Learned notes on AI agents, frontend and developer tools (Last update: 2026-07-14)
 <!-- RECENT_REPOS:END -->
 
-## Latest TIL
+## Latest Releases
 
-Fresh notes from [TIL Garden](https://adonis-til.mintlify.app/introduction), refreshed weekly.
+The newest release of each featured project, refreshed weekly.
 
-<!-- LATEST_TIL:START -->
-- [Skills for Real Engineers：Matt Pocock 的可组合 Agent Skills](https://adonis-til.mintlify.app/ai/mattpocock-skills) · 2026-07-14
-- [Next.js 服务端与客户端渲染原理：先别背名词，先看一条请求怎么走](https://adonis-til.mintlify.app/frontend/nextjs-rendering-principles) · 2026-05-08
-- [给 Claude Code 装上工程纪律：agent-skills 插件实战指南](https://adonis-til.mintlify.app/ai/agent-skills-guide) · 2026-04-22
-<!-- LATEST_TIL:END -->
+<!-- LATEST_RELEASES:START -->
+- **[sideby](https://github.com/Adonis0123/sideby)** [v0.42.1](https://github.com/Adonis0123/sideby/releases/tag/v0.42.1) · 2026-11-21
+- **[gemini-chrome-autoinstall](https://github.com/Adonis0123/gemini-chrome-autoinstall)** [v0.6.8](https://github.com/Adonis0123/gemini-chrome-autoinstall/releases/tag/v0.6.8) · 2026-11-13
+- **[agent-env](https://github.com/Adonis0123/agent-env)** [v0.1.0](https://github.com/Adonis0123/agent-env/releases/tag/v0.1.0) · 2026-11-10
+<!-- LATEST_RELEASES:END -->
 
 ## About Me
 
 - Frontend engineer based in Shenzhen, China, working mostly in React and TypeScript.
 - These days I spend most of my time building tooling for coding agents: Claude Code, Codex, Grok Build, Cursor, Hermes and pi.
 - Everything I publish is exported through an allowlist and a privacy scan before it leaves my machine.
-- I write down what I learn at [TIL Garden](https://adonis-til.mintlify.app/introduction).
 
 ## Tech Stack
 
@@ -207,9 +206,6 @@ Fresh notes from [TIL Garden](https://adonis-til.mintlify.app/introduction), ref
   </a>
   <a href="mailto:adonis20210809@gmail.com">
     <img src="https://img.shields.io/badge/Email-adonis20210809@gmail.com-EA4335?style=for-the-badge&logo=gmail&logoColor=white" alt="Email" />
-  </a>
-  <a href="https://adonis-til.mintlify.app/introduction">
-    <img src="https://img.shields.io/badge/Blog-TIL_Garden-2563EB?style=for-the-badge&logo=mintlify&logoColor=white" alt="TIL Garden blog" />
   </a>
 </p>
 

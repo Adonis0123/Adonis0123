@@ -28,7 +28,7 @@ applyTo: '**'
 - Fixed featured repos (`sideby`, `agent-env`, `adonis-skills`, `hermes-kit`, `adonis-pi`, `gemini-chrome-autoinstall`) and blocked repos are excluded from recent selection.
 - Outputs top N repos to `data/profile.projects.json` and injects markdown into `README.md` between `<!-- RECENT_REPOS:START/END -->` markers (the "More Projects" section).
 - Falls back to `FALLBACK_REPOS` or placeholder entries if GitHub API is unreachable.
-- Also refreshes `<!-- PROFILE_STATS:START/END -->` (published skill count from `SKILL_REPOS` + public commits in the last 30 days via the commit search API) and `<!-- LATEST_TIL:START/END -->` (newest posts by frontmatter `date`, read from `TIL_REPO`'s `docs.json` navigation).
+- Also refreshes `<!-- PROFILE_STATS:START/END -->` (published skill count from `SKILL_REPOS` + public commits in the last 30 days via the commit search API) and `<!-- LATEST_RELEASES:START/END -->` (the latest published release of each fixed featured repo, newest first; repos without a release are skipped).
 - Also refreshes `<!-- SHIPPED_THIS_WEEK:START/END -->` (latest public commits from the last 7 days, dropping `chore(sync)`, `chore(profile)`, merges and blocked repos) and `<!-- SKILL_OF_WEEK:START/END -->` (one skill from `SKILL_OF_WEEK_REPO`, rotated by week number since the Unix epoch).
 - If any of these fetches fails, that block keeps its previous content.
 
@@ -60,9 +60,7 @@ applyTo: '**'
 | `RECENT_REPO_COUNT` | `3` | Number of recent repos to display |
 | `FIXED_FEATURED_REPOS` | `Adonis0123/sideby,Adonis0123/agent-env,Adonis0123/adonis-skills,Adonis0123/hermes-kit,Adonis0123/adonis-pi,Adonis0123/gemini-chrome-autoinstall` | Repos excluded from recent (already featured) |
 | `SKILL_REPOS` | `Adonis0123/adonis-skills,Adonis0123/hermes-kit` | Repos whose `skills/<name>/SKILL.md` files are counted in the stats line |
-| `TIL_REPO` | `Adonis0123/til-garden` | Mintlify repo used for the Latest TIL block |
-| `TIL_SITE_URL` | `https://adonis-til.mintlify.app` | Base URL for TIL post links |
-| `LATEST_TIL_COUNT` | `3` | Number of TIL posts to display |
+| `LATEST_RELEASES_COUNT` | `5` | Number of releases in Latest Releases |
 | `SHIPPED_COUNT` | `5` | Number of commits in Shipped This Week |
 | `SKILL_OF_WEEK_REPO` | `Adonis0123/adonis-skills` | Repo whose `skills/<name>/SKILL.md` entries rotate in Skill of the Week |
 | `BLOCKED_REPOS` | `Adonis0123/Adonis0123` | Repos always excluded |

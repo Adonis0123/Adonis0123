@@ -6,7 +6,7 @@
  * Fetches public repositories from GitHub API, filters for quality candidates,
  * and updates both `data/profile.projects.json` and `README.md` with the most
  * recently active repos. Also refreshes the profile stats line and the latest
- * TIL Garden posts. Designed to run in GitHub Actions on a weekly cron.
+ * releases of the featured repos. Designed to run in GitHub Actions on a weekly cron.
  */
 
 import { readFile, writeFile } from "node:fs/promises";
@@ -35,10 +35,11 @@ import { pathToFileURL } from "node:url";
  */
 
 /**
- * @typedef {Object} TilPost
- * @property {string} title
+ * @typedef {Object} Release
+ * @property {string} repo - Repository full name
+ * @property {string} tag
  * @property {string} url
- * @property {string} date
+ * @property {string} date - ISO 8601
  */
 
 const PROFILE_USERNAME = process.env.PROFILE_USERNAME || "Adonis0123";
@@ -46,28 +47,29 @@ const GITHUB_TOKEN = process.env.GITHUB_TOKEN || "";
 const OUTPUT_JSON = "data/profile.projects.json";
 const README_PATH = "README.md";
 const COUNT = Number(process.env.RECENT_REPO_COUNT || "3");
-const LATEST_TIL_COUNT = Number(process.env.LATEST_TIL_COUNT || "3");
+const LATEST_RELEASES_COUNT = Number(process.env.LATEST_RELEASES_COUNT || "5");
 const STATS_WINDOW_DAYS = 30;
 const SHIPPED_WINDOW_DAYS = 7;
 const SHIPPED_COUNT = Number(process.env.SHIPPED_COUNT || "5");
 const DAY_MS = 24 * 60 * 60 * 1000;
 
-const FIXED_FEATURED_REPOS = new Set(
-  (process.env.FIXED_FEATURED_REPOS ||
-    [
-      "sideby",
-      "agent-env",
-      "adonis-skills",
-      "hermes-kit",
-      "adonis-pi",
-      "gemini-chrome-autoinstall",
-    ]
-      .map((name) => `${PROFILE_USERNAME}/${name}`)
-      .join(","))
-    .split(",")
-    .map((item) => item.trim().toLowerCase())
-    .filter(Boolean),
-);
+// Original case is kept for display in Latest Releases.
+const FEATURED_REPOS = (process.env.FIXED_FEATURED_REPOS ||
+  [
+    "sideby",
+    "agent-env",
+    "adonis-skills",
+    "hermes-kit",
+    "adonis-pi",
+    "gemini-chrome-autoinstall",
+  ]
+    .map((name) => `${PROFILE_USERNAME}/${name}`)
+    .join(","))
+  .split(",")
+  .map((item) => item.trim())
+  .filter(Boolean);
+
+const FIXED_FEATURED_REPOS = new Set(FEATURED_REPOS.map((repo) => repo.toLowerCase()));
 
 const SKILL_REPOS = (process.env.SKILL_REPOS ||
   `${PROFILE_USERNAME}/adonis-skills,${PROFILE_USERNAME}/hermes-kit`)
@@ -77,11 +79,6 @@ const SKILL_REPOS = (process.env.SKILL_REPOS ||
 
 const SKILL_OF_WEEK_REPO =
   process.env.SKILL_OF_WEEK_REPO || `${PROFILE_USERNAME}/adonis-skills`;
-
-const TIL_REPO = process.env.TIL_REPO || `${PROFILE_USERNAME}/til-garden`;
-const TIL_SITE_URL = (
-  process.env.TIL_SITE_URL || "https://adonis-til.mintlify.app"
-).replace(/\/+$/, "");
 
 const AGENT_HOSTS = ["Claude Code", "Codex", "Cursor", "Hermes", "pi"];
 
@@ -324,21 +321,6 @@ export function renderStatsMarkdown({ skillCount, commitCount }) {
 }
 
 /**
- * Collects page slugs from a Mintlify `docs.json` navigation tree, in order.
- * @param {unknown} node - `navigation` object or any nested tab/group/page
- * @returns {string[]}
- */
-export function collectDocsPages(node) {
-  if (typeof node === "string") return [node];
-  if (Array.isArray(node)) return node.flatMap(collectDocsPages);
-  if (!node || typeof node !== "object") return [];
-
-  return ["tabs", "groups", "pages"].flatMap((key) =>
-    key in node ? collectDocsPages(node[key]) : [],
-  );
-}
-
-/**
  * Reads flat `key: value` pairs from a markdown frontmatter block.
  * Multi-line YAML values are ignored; only simple scalars are needed here.
  * @param {string} text
@@ -358,28 +340,25 @@ export function parseFrontmatter(text) {
 }
 
 /**
- * Picks the newest posts by publish date (`YYYY-MM-DD`), skipping undated ones.
- * @param {TilPost[]} posts
+ * Picks the newest releases, newest first.
+ * @param {Release[]} releases
  * @param {number} count
- * @returns {TilPost[]}
+ * @returns {Release[]}
  */
-export function selectLatestTil(posts, count) {
-  return posts
-    .filter((post) => /^\d{4}-\d{2}-\d{2}/.test(post.date))
-    .sort((a, b) => b.date.localeCompare(a.date))
-    .slice(0, count);
+export function selectLatestReleases(releases, count) {
+  return [...releases].sort((a, b) => b.date.localeCompare(a.date)).slice(0, count);
 }
 
 /**
- * Renders TIL posts as a markdown bullet list.
- * @param {TilPost[]} posts
+ * Renders releases as a markdown bullet list.
+ * @param {Release[]} releases
  * @returns {string}
  */
-export function renderLatestTilMarkdown(posts) {
-  return posts
-    .map((post) => {
-      const title = post.title.replace(/[[\]]/g, "\\$&");
-      return `- [${title}](${post.url}) · ${post.date.slice(0, 10)}`;
+export function renderLatestReleasesMarkdown(releases) {
+  return releases
+    .map((release) => {
+      const name = release.repo.split("/").pop();
+      return `- **[${name}](https://github.com/${release.repo})** [${release.tag}](${release.url}) · ${release.date.slice(0, 10)}`;
     })
     .join("\n");
 }
@@ -415,31 +394,30 @@ async function fetchProfileStats() {
 }
 
 /**
- * Fetches TIL Garden posts listed in `docs.json` with their frontmatter.
- * @returns {Promise<TilPost[]>}
+ * Fetches the latest published release of each featured repo. Repos without
+ * a release (404) are skipped; drafts and prereleases never count as latest.
+ * @returns {Promise<Release[]>}
  */
-async function fetchTilPosts() {
-  const docsJson = await ghFetchText(TIL_REPO, "docs.json");
-  if (!docsJson) throw new Error(`docs.json not found in ${TIL_REPO}.`);
+async function fetchLatestReleases() {
+  const releases = [];
+  for (const repo of FEATURED_REPOS) {
+    const response = await fetch(`https://api.github.com/repos/${repo}/releases/latest`, {
+      headers: buildHeaders(),
+    });
+    if (response.status === 404) continue;
+    if (!response.ok) {
+      throw new Error(`GitHub API request failed (${response.status}) for ${repo} releases`);
+    }
 
-  const pages = collectDocsPages(JSON.parse(docsJson).navigation).filter(
-    (page) => page !== "introduction",
-  );
-
-  const posts = [];
-  // Sequential on purpose, same as the README gate: avoids API bursts.
-  for (const page of pages) {
-    const text =
-      (await ghFetchText(TIL_REPO, `${page}.mdx`)) ??
-      (await ghFetchText(TIL_REPO, `${page}.md`));
-    if (!text) continue;
-
-    const { title, date } = parseFrontmatter(text);
-    if (!title || !date) continue;
-    posts.push({ title, url: `${TIL_SITE_URL}/${page}`, date });
+    const release = await response.json();
+    releases.push({
+      repo,
+      tag: release.tag_name,
+      url: release.html_url,
+      date: release.published_at,
+    });
   }
-
-  return posts;
+  return releases;
 }
 
 /**
@@ -673,8 +651,8 @@ async function main() {
   const finalProjects = selected.slice(0, COUNT);
 
   const stats = await tryLoad("profile stats", fetchProfileStats);
-  const tilPosts = await tryLoad("latest TIL", fetchTilPosts);
-  const latestTil = tilPosts ? selectLatestTil(tilPosts, LATEST_TIL_COUNT) : [];
+  const releases = await tryLoad("latest releases", fetchLatestReleases);
+  const latestReleases = releases ? selectLatestReleases(releases, LATEST_RELEASES_COUNT) : [];
   const shipped = await tryLoad("shipped this week", fetchShippedCommits);
   const skillOfWeek = await tryLoad("skill of the week", fetchSkillOfWeek);
 
@@ -691,8 +669,12 @@ async function main() {
   if (skillOfWeek) {
     readme = replaceMarkerBlock(readme, "SKILL_OF_WEEK", renderSkillOfWeekMarkdown(skillOfWeek));
   }
-  if (latestTil.length > 0) {
-    readme = replaceMarkerBlock(readme, "LATEST_TIL", renderLatestTilMarkdown(latestTil));
+  if (latestReleases.length > 0) {
+    readme = replaceMarkerBlock(
+      readme,
+      "LATEST_RELEASES",
+      renderLatestReleasesMarkdown(latestReleases),
+    );
   }
 
   await writeFile(OUTPUT_JSON, `${JSON.stringify(finalProjects, null, 2)}\n`, "utf8");
