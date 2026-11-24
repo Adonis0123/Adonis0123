@@ -1,18 +1,18 @@
 [
   {
-    "name": "stars",
-    "repo": "Adonis0123/stars",
+    "name": "npm-release-guide",
+    "repo": "Adonis0123/npm-release-guide",
     "demo": null,
-    "summary": "My GitHub stars and tech posts from X, sorted by starsieve",
+    "summary": "Publish npm packages without getting stuck on two-factor prompts: an agent skill and a plain-language guide (EN/中文)",
     "tech": [],
-    "updatedAt": "2026-11-22T13:26:13.000Z"
+    "updatedAt": "2026-11-24T08:42:00.000Z"
   },
   {
-    "name": "starsieve",
-    "repo": "Adonis0123/starsieve",
+    "name": "network-portal",
+    "repo": "Adonis0123/network-portal",
     "demo": null,
-    "summary": "Sort your GitHub stars and X likes/bookmarks into a browsable collection; any agent can be the classifier",
+    "summary": "Offline network diagnosis and an embeddable bilingual Network portal",
     "tech": [],
-    "updatedAt": "2026-11-22T13:25:07.000Z"
+    "updatedAt": "2026-11-24T08:38:04.000Z"
   }
 ]
