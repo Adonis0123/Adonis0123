@@ -24,4 +24,5 @@ GITHUB_TOKEN=<token> node scripts/select-recent-repos.mjs
 2. Run `pnpm test`.
 3. Confirm `README.md` markers (`RECENT_REPOS`, `PROFILE_STATS`, `SKILL_OF_WEEK`, `SHIPPED_THIS_WEEK`, `LATEST_RELEASES` START/END pairs) are intact after changes.
 4. Confirm `data/profile.projects.json` is valid JSON.
-5. Run `pnpm run ruler:apply` after editing `.ruler/*.md` templates.
+5. Confirm `assets/badges/*.svg` were regenerated and each starts with `<svg`. `assets/cards/*.svg` are generated only in GitHub Actions: a local token with `repo` scope would count private repositories.
+6. Run `pnpm run ruler:apply` after editing `.ruler/*.md` templates.

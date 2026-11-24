@@ -13,6 +13,8 @@ applyTo: '**'
 
 - `scripts/` — Automation scripts (`select-recent-repos.mjs`, `sync-llm-skills.ts`)
 - `data/` — Generated JSON data (`profile.projects.json`)
+- `assets/badges/` — Generated badge SVGs for the featured repos (written by `select-recent-repos.mjs`)
+- `assets/cards/` — Generated GitHub stats and top-languages card SVGs (written by the workflow)
 - `.agents/skills/` — Source of truth for AI skills (synced to `.claude/skills/`)
 - `.github/workflows/` — GitHub Actions workflow definitions
 - `.ruler/` — Ruler rule templates (generates root `AGENTS.md` and `CLAUDE.md`)
@@ -21,7 +23,7 @@ applyTo: '**'
 
 ### 1. Profile Refresh Pipeline
 
-`GitHub Actions (weekly cron)` → `select-recent-repos.mjs` → `GitHub API` → `data/profile.projects.json` + `README.md`
+`GitHub Actions (weekly cron)` → `select-recent-repos.mjs` → `GitHub API` → `data/profile.projects.json` + `README.md` + `assets/badges/*.svg`; then `github-readme-stats-action` → `assets/cards/*.svg`
 
 - Script fetches public repos via GitHub API, sorted by `pushed_at`.
 - Quality filter: excludes forks, archived, disabled, repos matching demo/tutorial/sandbox pattern, and repos without a README.
@@ -31,6 +33,10 @@ applyTo: '**'
 - Also refreshes `<!-- PROFILE_STATS:START/END -->` (published skill count from `SKILL_REPOS` + public commits in the last 30 days via the commit search API) and `<!-- LATEST_RELEASES:START/END -->` (the latest published release of each fixed featured repo, newest first; repos without a release are skipped).
 - Also refreshes `<!-- SHIPPED_THIS_WEEK:START/END -->` (latest public commits from the last 7 days, dropping `chore(sync)`, `chore(profile)`, merges and blocked repos) and `<!-- SKILL_OF_WEEK:START/END -->` (one skill from `SKILL_OF_WEEK_REPO`, rotated by week number since the Unix epoch).
 - If any of these fetches fails, that block keeps its previous content.
+- Also writes badge SVGs with `badge-maker` into `assets/badges/`: `<repo>-stars.svg` and `<repo>-last-commit.svg` (default-branch commit date as `YYYY-MM-DD`) for every featured repo, `<repo>-release.svg` for `RELEASE_BADGE_REPOS`, and `<package>-npm.svg` for `NPM_BADGE_PACKAGES` (npm registry, fetched without the GitHub token). Each badge loads on its own; a failed fetch keeps that badge's previous SVG.
+- The workflow then runs `stats-organization/github-readme-stats-action@v2.1.0` twice to write `assets/cards/stats.svg` and `assets/cards/top-langs.svg`, with `fail_on_error` + `continue-on-error` so a failed card keeps the committed one.
+- README references badges and cards by relative path, so GitHub serves them directly instead of through its ~4s camo image proxy, which dynamic shields.io badges and the Vercel-hosted stats cards often missed.
+- The commit step stages `README.md`, `data/profile.projects.json` and `assets/`, and commits only when something is staged.
 
 ### 2. Snake Animation Pipeline
 

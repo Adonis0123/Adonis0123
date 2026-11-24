@@ -4,7 +4,10 @@ import { describe, it } from "node:test";
 import {
   buildCommitSearchQuery,
   countPublishedSkills,
+  formatStarCount,
+  formatVersion,
   isQualityCandidate,
+  lastCommitColor,
   parseFrontmatter,
   pickWeeklyItem,
   renderLatestReleasesMarkdown,
@@ -252,5 +255,27 @@ describe("renderSkillOfWeekMarkdown", () => {
       /^\*\*\[workflow-gate\]\(https:\/\/github\.com\/Adonis0123\/adonis-skills\/tree\/HEAD\/skills\/workflow-gate\)\*\* — Route work/,
     );
     assert.match(markdown, /npx skills add adonis0123\/adonis-skills --skill workflow-gate/);
+  });
+});
+
+describe("badge messages", () => {
+  it("formats star counts like shields metric", () => {
+    assert.equal(formatStarCount(0), "0");
+    assert.equal(formatStarCount(999), "999");
+    assert.equal(formatStarCount(1234), "1.2k");
+    assert.equal(formatStarCount(2000), "2k");
+    assert.equal(formatStarCount(15400), "15k");
+  });
+
+  it("adds a v prefix to numeric versions only once", () => {
+    assert.equal(formatVersion("0.42.1"), "v0.42.1");
+    assert.equal(formatVersion("v0.6.8"), "v0.6.8");
+  });
+
+  it("colors last commit by age", () => {
+    const now = Date.parse("2026-11-24T00:00:00Z");
+    assert.equal(lastCommitColor("2026-11-20T00:00:00Z", now), "brightgreen");
+    assert.equal(lastCommitColor("2026-10-01T00:00:00Z", now), "yellowgreen");
+    assert.equal(lastCommitColor("2023-01-01T00:00:00Z", now), "red");
   });
 });

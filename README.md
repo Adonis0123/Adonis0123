@@ -15,7 +15,7 @@
 
 ### [sideby](https://github.com/Adonis0123/sideby)
 
-<a href="https://www.npmjs.com/package/sideby"><img src="https://img.shields.io/npm/v/sideby?style=flat-square&color=00c4b4" alt="npm version" /></a> <a href="https://github.com/Adonis0123/sideby/stargazers"><img src="https://img.shields.io/github/stars/Adonis0123/sideby?style=flat-square&color=58A6FF" alt="Stars" /></a> <a href="https://github.com/Adonis0123/sideby/commits"><img src="https://img.shields.io/github/last-commit/Adonis0123/sideby?style=flat-square&label=last%20commit" alt="Last commit" /></a>
+<a href="https://www.npmjs.com/package/sideby"><img src="./assets/badges/sideby-npm.svg" alt="npm version" /></a> <a href="https://github.com/Adonis0123/sideby/stargazers"><img src="./assets/badges/sideby-stars.svg" alt="Stars" /></a> <a href="https://github.com/Adonis0123/sideby/commits"><img src="./assets/badges/sideby-last-commit.svg" alt="Last commit" /></a>
 
 Run work, personal and API-key accounts at the same time, without their configs drifting apart: Claude Code, Codex, Grok Build and pi, plus quota for Antigravity. Each account gets its own directory and terminal, while skills, hooks and settings stay linked to your main account; `sideby doctor --fix` repairs drift. One local panel and a macOS menu bar show every account's 5-hour and weekly quota, and `sideby next` starts the account with the most left. It never reads, prints or sends a credential value.
 
@@ -35,7 +35,7 @@ npm i -g sideby && sideby new claude work && sideby ui --background
 
 ### [agent-env](https://github.com/Adonis0123/agent-env)
 
-<a href="https://github.com/Adonis0123/agent-env/stargazers"><img src="https://img.shields.io/github/stars/Adonis0123/agent-env?style=flat-square&color=58A6FF" alt="Stars" /></a> <a href="https://github.com/Adonis0123/agent-env/commits"><img src="https://img.shields.io/github/last-commit/Adonis0123/agent-env?style=flat-square&label=last%20commit" alt="Last commit" /></a>
+<a href="https://github.com/Adonis0123/agent-env/stargazers"><img src="./assets/badges/agent-env-stars.svg" alt="Stars" /></a> <a href="https://github.com/Adonis0123/agent-env/commits"><img src="./assets/badges/agent-env-last-commit.svg" alt="Last commit" /></a>
 
 One manifest for the rules and skills of every AI agent I run: Claude Code, Codex, Grok, pi, Cursor, Hermes and cloud chat bots. It ships them as plugins with a visibility (public, personal, company or local), scans public and personal ones for home paths, emails and secrets before they are written, and `bin/agent-env doctor` checks every machine against the manifest. It also builds [agent-plugin-public](https://github.com/Adonis0123/agent-plugin-public), the plugin of shared rules and general skills you can install directly.
 
@@ -61,7 +61,7 @@ flowchart LR
 
 ### [adonis-skills](https://github.com/Adonis0123/adonis-skills)
 
-<a href="https://github.com/Adonis0123/adonis-skills/stargazers"><img src="https://img.shields.io/github/stars/Adonis0123/adonis-skills?style=flat-square&color=58A6FF" alt="Stars" /></a> <a href="https://github.com/Adonis0123/adonis-skills/commits"><img src="https://img.shields.io/github/last-commit/Adonis0123/adonis-skills?style=flat-square&label=last%20commit" alt="Last commit" /></a>
+<a href="https://github.com/Adonis0123/adonis-skills/stargazers"><img src="./assets/badges/adonis-skills-stars.svg" alt="Stars" /></a> <a href="https://github.com/Adonis0123/adonis-skills/commits"><img src="./assets/badges/adonis-skills-last-commit.svg" alt="Last commit" /></a>
 
 Agent-agnostic skills for coding agents: review loops, workflow gates, MCP setup, Git delivery and local environment audits. Works in Claude Code, Codex, Cursor, Hermes or any agent that reads `SKILL.md`. · [Live site](https://adonis-skills.vercel.app/)
 
@@ -71,7 +71,7 @@ npx skills add adonis0123/adonis-skills --list
 
 ### [hermes-kit](https://github.com/Adonis0123/hermes-kit)
 
-<a href="https://github.com/Adonis0123/hermes-kit/stargazers"><img src="https://img.shields.io/github/stars/Adonis0123/hermes-kit?style=flat-square&color=58A6FF" alt="Stars" /></a> <a href="https://github.com/Adonis0123/hermes-kit/commits"><img src="https://img.shields.io/github/last-commit/Adonis0123/hermes-kit?style=flat-square&label=last%20commit" alt="Last commit" /></a>
+<a href="https://github.com/Adonis0123/hermes-kit/stargazers"><img src="./assets/badges/hermes-kit-stars.svg" alt="Stars" /></a> <a href="https://github.com/Adonis0123/hermes-kit/commits"><img src="./assets/badges/hermes-kit-last-commit.svg" alt="Last commit" /></a>
 
 Plugins, skills and field notes for running [Hermes Agent](https://github.com/NousResearch/hermes-agent) day to day, plus docs for a patched Hermes fork. The skills also install into Claude Code and Codex.
 
@@ -81,7 +81,7 @@ hermes skills tap add Adonis0123/hermes-kit
 
 ### [adonis-pi](https://github.com/Adonis0123/adonis-pi)
 
-<a href="https://github.com/Adonis0123/adonis-pi/stargazers"><img src="https://img.shields.io/github/stars/Adonis0123/adonis-pi?style=flat-square&color=58A6FF" alt="Stars" /></a> <a href="https://github.com/Adonis0123/adonis-pi/commits"><img src="https://img.shields.io/github/last-commit/Adonis0123/adonis-pi?style=flat-square&label=last%20commit" alt="Last commit" /></a>
+<a href="https://github.com/Adonis0123/adonis-pi/stargazers"><img src="./assets/badges/adonis-pi-stars.svg" alt="Stars" /></a> <a href="https://github.com/Adonis0123/adonis-pi/commits"><img src="./assets/badges/adonis-pi-last-commit.svg" alt="Last commit" /></a>
 
 A Pi Package that brings my Claude Code habits to [pi](https://github.com/earendil-works/pi) without forking it: a permission gate, attention notifications, a Claude Code–compatible `AskUserQuestion` tool and the `pin` multi-account launcher.
 
@@ -92,7 +92,7 @@ pin setup 1
 
 ### [gemini-chrome-autoinstall](https://github.com/Adonis0123/gemini-chrome-autoinstall)
 
-<a href="https://github.com/Adonis0123/gemini-chrome-autoinstall/stargazers"><img src="https://img.shields.io/github/stars/Adonis0123/gemini-chrome-autoinstall?style=flat-square&color=58A6FF" alt="Stars" /></a> <a href="https://github.com/Adonis0123/gemini-chrome-autoinstall/commits"><img src="https://img.shields.io/github/last-commit/Adonis0123/gemini-chrome-autoinstall?style=flat-square&label=last%20commit" alt="Last commit" /></a> <a href="https://github.com/Adonis0123/gemini-chrome-autoinstall/releases"><img src="https://img.shields.io/github/v/release/Adonis0123/gemini-chrome-autoinstall?style=flat-square&label=release&color=00c4b4" alt="Latest release" /></a>
+<a href="https://github.com/Adonis0123/gemini-chrome-autoinstall/stargazers"><img src="./assets/badges/gemini-chrome-autoinstall-stars.svg" alt="Stars" /></a> <a href="https://github.com/Adonis0123/gemini-chrome-autoinstall/commits"><img src="./assets/badges/gemini-chrome-autoinstall-last-commit.svg" alt="Last commit" /></a> <a href="https://github.com/Adonis0123/gemini-chrome-autoinstall/releases"><img src="./assets/badges/gemini-chrome-autoinstall-release.svg" alt="Latest release" /></a>
 
 A self-healing wrapper that keeps [Gemini-in-Chrome](https://github.com/appsail/Gemini-in-Chrome) working after Chrome updates: it watches for version changes and repairs `Local State` only when it is safe to write. macOS and Windows.
 
@@ -191,10 +191,10 @@ The newest release of each featured project, refreshed weekly.
 
 <p align="center">
   <a href="https://github.com/Adonis0123">
-    <img height="170" src="https://adonis0123-stats.vercel.app/api?username=Adonis0123&show_icons=true&hide_border=true&rank_icon=github&theme=transparent&icon_color=58A6FF" alt="GitHub stats for Adonis0123" />
+    <img height="170" src="./assets/cards/stats.svg" alt="GitHub stats for Adonis0123" />
   </a>
   <a href="https://github.com/Adonis0123">
-    <img height="170" src="https://adonis0123-stats.vercel.app/api/top-langs/?username=Adonis0123&layout=compact&hide_border=true&theme=transparent&langs_count=8" alt="Top languages used by Adonis0123" />
+    <img height="170" src="./assets/cards/top-langs.svg" alt="Top languages used by Adonis0123" />
   </a>
 </p>
 

@@ -5,12 +5,15 @@
  *
  * Fetches public repositories from GitHub API, filters for quality candidates,
  * and updates both `data/profile.projects.json` and `README.md` with the most
- * recently active repos. Also refreshes the profile stats line and the latest
- * releases of the featured repos. Designed to run in GitHub Actions on a weekly cron.
+ * recently active repos. Also refreshes the profile stats line, the latest
+ * releases of the featured repos and the featured repos' badge SVGs under
+ * `assets/badges/`. Designed to run in GitHub Actions on a weekly cron.
  */
 
-import { readFile, writeFile } from "node:fs/promises";
+import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { pathToFileURL } from "node:url";
+
+import { makeBadge } from "badge-maker";
 
 /**
  * @typedef {Object} GitHubRepo
@@ -22,6 +25,7 @@ import { pathToFileURL } from "node:url";
  * @property {boolean} archived
  * @property {boolean} disabled
  * @property {string|null} pushed_at
+ * @property {number} [stargazers_count]
  */
 
 /**
@@ -76,6 +80,15 @@ const SKILL_REPOS = (process.env.SKILL_REPOS ||
   .split(",")
   .map((item) => item.trim())
   .filter(Boolean);
+
+// Badges are committed SVGs, not shields.io URLs: GitHub's image proxy times
+// out after ~4s and dynamic shields badges often miss that, leaving broken images.
+const BADGE_DIR = "assets/badges";
+const BADGE_STYLE = "flat-square";
+const STARS_BADGE_COLOR = "58A6FF";
+const VERSION_BADGE_COLOR = "00c4b4";
+const RELEASE_BADGE_REPOS = [`${PROFILE_USERNAME}/gemini-chrome-autoinstall`];
+const NPM_BADGE_PACKAGES = ["sideby"];
 
 const SKILL_OF_WEEK_REPO =
   process.env.SKILL_OF_WEEK_REPO || `${PROFILE_USERNAME}/adonis-skills`;
@@ -553,6 +566,154 @@ async function fetchSkillOfWeek() {
 }
 
 /**
+ * Formats a star count like shields.io's `metric` (e.g. `999`, `1.2k`, `15k`).
+ * @param {number} count
+ * @returns {string}
+ */
+export function formatStarCount(count) {
+  for (const [limit, suffix] of [
+    [1e6, "M"],
+    [1e3, "k"],
+  ]) {
+    if (count < limit) continue;
+    const scaled = count / limit;
+    const oneDecimal = scaled.toFixed(1);
+    if (scaled < 10 && !oneDecimal.endsWith("0")) return `${oneDecimal}${suffix}`;
+    return `${Math.round(scaled)}${suffix}`;
+  }
+  return String(count);
+}
+
+/**
+ * Adds a `v` prefix to numeric versions, as shields.io does for version badges.
+ * @param {string} version
+ * @returns {string}
+ */
+export function formatVersion(version) {
+  return /^\d/.test(version) ? `v${version}` : version;
+}
+
+/**
+ * Colors a last-commit badge by age with shields.io's default scale.
+ * @param {string} date - ISO 8601
+ * @param {number} nowMs
+ * @returns {string}
+ */
+export function lastCommitColor(date, nowMs) {
+  const days = Math.floor((nowMs - new Date(date).getTime()) / DAY_MS);
+  const steps = [
+    [7, "brightgreen"],
+    [30, "green"],
+    [180, "yellowgreen"],
+    [365, "yellow"],
+    [730, "orange"],
+  ];
+  return steps.find(([limit]) => days < limit)?.[1] ?? "red";
+}
+
+/**
+ * Writes one badge SVG into `BADGE_DIR`.
+ * @param {string} file
+ * @param {{ label: string, message: string, color: string }} format
+ * @returns {Promise<void>}
+ */
+async function writeBadge(file, format) {
+  await mkdir(BADGE_DIR, { recursive: true });
+  await writeFile(`${BADGE_DIR}/${file}`, makeBadge({ ...format, style: BADGE_STYLE }), "utf8");
+}
+
+/**
+ * Fetches the author date of the newest commit on the default branch.
+ * @param {string} repo - Repository full name
+ * @returns {Promise<string>}
+ */
+async function fetchLastCommitDate(repo) {
+  const [commit] = await ghFetch(`/repos/${repo}/commits?per_page=1`);
+  const date = commit?.commit?.author?.date;
+  if (!date) throw new Error(`No commits found for ${repo}.`);
+  return date;
+}
+
+/**
+ * Fetches the `latest` dist-tag version from the public npm registry.
+ * No GitHub headers here: the token must not leave api.github.com.
+ * @param {string} pkg
+ * @returns {Promise<string>}
+ */
+async function fetchNpmVersion(pkg) {
+  const response = await fetch(`https://registry.npmjs.org/${pkg}/latest`);
+  if (!response.ok) throw new Error(`npm registry request failed (${response.status}) for ${pkg}`);
+  const { version } = await response.json();
+  if (!version) throw new Error(`npm registry returned no version for ${pkg}`);
+  return version;
+}
+
+/**
+ * Regenerates the featured repos' badge SVGs. Each badge is loaded on its own,
+ * so a failed fetch keeps that badge's previous SVG.
+ * @param {GitHubRepo[]} repos - Already-listed public repos (may be empty)
+ * @param {Release[]|null} releases - Raw `fetchLatestReleases` result
+ * @returns {Promise<void>}
+ */
+async function refreshBadges(repos, releases) {
+  const reposByName = new Map(repos.map((repo) => [repo.full_name.toLowerCase(), repo]));
+  const nowMs = Date.now();
+
+  for (const repo of FEATURED_REPOS) {
+    const name = repo.split("/").pop();
+
+    await tryLoad(`${name} stars badge`, async () => {
+      const listed = reposByName.get(repo.toLowerCase());
+      const stars = listed
+        ? listed.stargazers_count
+        : (await ghFetch(`/repos/${repo}`)).stargazers_count;
+      if (typeof stars !== "number") throw new Error(`No stargazers_count for ${repo}.`);
+      await writeBadge(`${name}-stars.svg`, {
+        label: "stars",
+        message: formatStarCount(stars),
+        color: STARS_BADGE_COLOR,
+      });
+    });
+
+    await tryLoad(`${name} last-commit badge`, async () => {
+      const date = await fetchLastCommitDate(repo);
+      await writeBadge(`${name}-last-commit.svg`, {
+        label: "last commit",
+        message: toMarkdownDate(date),
+        color: lastCommitColor(date, nowMs),
+      });
+    });
+  }
+
+  for (const repo of RELEASE_BADGE_REPOS) {
+    const name = repo.split("/").pop();
+    await tryLoad(`${name} release badge`, async () => {
+      // `releases` is null when the batch fetch failed on another repo, so fetch this one on its own.
+      const release = releases
+        ? releases.find((item) => item.repo.toLowerCase() === repo.toLowerCase())
+        : await ghFetch(`/repos/${repo}/releases/latest`).then((item) => ({ tag: item.tag_name }));
+      if (!release) throw new Error(`No published release loaded for ${repo}.`);
+      await writeBadge(`${name}-release.svg`, {
+        label: "release",
+        message: formatVersion(release.tag),
+        color: VERSION_BADGE_COLOR,
+      });
+    });
+  }
+
+  for (const pkg of NPM_BADGE_PACKAGES) {
+    await tryLoad(`${pkg} npm badge`, async () => {
+      const version = await fetchNpmVersion(pkg);
+      await writeBadge(`${pkg}-npm.svg`, {
+        label: "npm",
+        message: formatVersion(version),
+        color: VERSION_BADGE_COLOR,
+      });
+    });
+  }
+}
+
+/**
  * Runs a block loader; logs and returns `null` on failure so the README keeps
  * its previous content for that block instead of losing it.
  * @template T
@@ -680,7 +841,9 @@ async function main() {
   await writeFile(OUTPUT_JSON, `${JSON.stringify(finalProjects, null, 2)}\n`, "utf8");
   await writeFile(README_PATH, readme, "utf8");
 
-  console.log(`Updated ${OUTPUT_JSON} and README blocks for ${PROFILE_USERNAME}.`);
+  await refreshBadges(repos, releases);
+
+  console.log(`Updated ${OUTPUT_JSON}, README blocks and ${BADGE_DIR} for ${PROFILE_USERNAME}.`);
 }
 
 if (import.meta.url === pathToFileURL(process.argv[1] ?? "").href) {
