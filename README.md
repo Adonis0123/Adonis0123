@@ -1,4 +1,4 @@
-<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:1a73e8,100:00c4b4&height=200&section=header&text=Adonis&fontSize=60&fontColor=ffffff&fontAlignY=35&desc=Frontend+engineer+%C2%B7+Developer+tools+%26+workflows+for+coding+agents&descSize=16&descAlignY=55&descColor=ffffff" alt="Header banner" />
+<img width="100%" src="./assets/banner-header.svg" alt="Header banner" />
 
 <p align="center">
   Frontend engineer based in Shenzhen (React · TypeScript).<br />
@@ -219,4 +219,4 @@ The newest release of each featured project, refreshed weekly.
   <sub>This profile is refreshed weekly by <a href="https://github.com/Adonis0123/Adonis0123/blob/main/.github/workflows/profile-refresh.yml">GitHub Actions</a> — and edited by coding agents.</sub>
 </p>
 
-<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:1a73e8,100:00c4b4&height=120&section=footer" alt="Footer wave" />
+<img width="100%" src="./assets/banner-footer.svg" alt="Footer wave" />
