@@ -1,8 +1,8 @@
-<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:1a73e8,100:00c4b4&height=200&section=header&text=Adonis&fontSize=60&fontColor=ffffff&fontAlignY=35&desc=Frontend+engineer+building+skills,+plugins+and+workflows+for+coding+agents&descSize=16&descAlignY=55&descColor=ffffff" alt="Header banner" />
+<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:1a73e8,100:00c4b4&height=200&section=header&text=Adonis&fontSize=60&fontColor=ffffff&fontAlignY=35&desc=Frontend+engineer+%C2%B7+Developer+tools+%26+workflows+for+coding+agents&descSize=16&descAlignY=55&descColor=ffffff" alt="Header banner" />
 
 <p align="center">
-  Frontend engineer (React · TypeScript) turned coding-agent toolsmith.<br />
-  I package the habits that make agents reliable — review loops, workflow gates, permission gates — into things you can install in one line.
+  Frontend engineer based in Shenzhen (React · TypeScript).<br />
+  Mostly building CLI tools, reusable skills, and everyday workflows for coding agents.
 </p>
 
 <!-- PROFILE_STATS:START -->
@@ -145,9 +145,9 @@ The newest release of each featured project, refreshed weekly.
 
 ## About Me
 
-- Frontend engineer based in Shenzhen, China, working mostly in React and TypeScript.
-- These days I spend most of my time building tooling for coding agents: Claude Code, Codex, Grok Build, Cursor, Hermes and pi.
-- Everything I publish is exported through an allowlist and a privacy scan before it leaves my machine.
+- Day job: frontend engineering with React, TypeScript, and Next.js.
+- Side focus: multi-account management, environment sync, reusable skills, and browser/CLI utilities for coding agents (Claude Code, Codex, Grok Build, Cursor, Hermes, and pi).
+- Notes & write-ups: [TIL Garden](https://adonis-til.mintlify.app).
 
 ## Tech Stack
 
@@ -177,13 +177,13 @@ The newest release of each featured project, refreshed weekly.
 
 ### Runtime & Tools
 
-- Node.js, Git, VSCode, Figma
-- Python, GitHub, Cloudflare Workers, CodePen, Stack Overflow
+- Node.js, Python, Git, VS Code, Figma
+- GitHub, Cloudflare Workers
 
 ### Infra & DevOps
 
 - PostgreSQL, Docker, GitHub Actions
-- Nginx, Cloudflare, Vercel, Linux, Jenkins
+- Nginx, Cloudflare, Vercel, Linux
 
 </details>
 
